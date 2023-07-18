@@ -19,7 +19,7 @@ export default function Rospiv() {
 
             <a className='rospiv-box__item' href="/perfumery">
               <div className='rospiv-box__item-picture'>
-                <img className='rospiv-box__item-image' src="./img/perfumery.jpg" alt="legenda-parfum" />
+                <img className='rospiv-box__item-image' src="./img/perfumery.png" alt="legenda-parfum" />
               </div>
 
               <div className='rospiv-box__item-text'>ПАРФУМЕРІЯ</div>
