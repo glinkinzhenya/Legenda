@@ -1,0 +1,163 @@
+.filter {
+    margin-right: auto;
+}
+
+.filter-container {
+    width: 230px;
+    border-top: 1px solid rgba(17, 18, 18, 0.50);
+    padding: 10px;
+}
+
+.filter-line {
+    background-color: rgba(17, 18, 18, 0.50);
+    height: 1px;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+}
+
+.filter-main {
+    display: flex;
+    gap: 13px;
+
+    align-items: center;
+    margin-top: -60px;
+    margin-bottom: 60px;
+    margin-left: 20px;
+}
+
+.filter-title {
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.filter-brand {
+    margin-bottom: 30px;
+}
+
+.filter-brand__title {
+    border: 1px solid rgba(17, 18, 18, 0.50);
+    padding: 12px;
+    margin-bottom: 30px;
+
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.filter-brand__checkbox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+
+}
+
+.filter-size {
+    border: 1px solid rgba(17, 18, 18, 0.50);
+    padding: 12px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.filter-size__box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.filter-sex {
+    margin-bottom: 30px;
+}
+
+.filter-price {
+    border: 1px solid rgba(17, 18, 18, 0.50);
+    padding: 12px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.filter-button {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.filter-button__click {
+    padding: 9px 23px;
+    background-color: black;
+    border: none;
+    color: #FFF;
+    text-align: center;
+    font-size: 12px;
+    font-family: Nunito;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.filter-button__click:hover {
+    color: black;
+    background-color: white;
+}
+
+.filter-mobile {
+    display: flex;
+    gap: 10px;
+    margin-right: auto;
+    border-bottom: 0.5px solid black;
+    padding: 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+
+}
+
+.filter-mobile-logo__close {
+    background-color: #929292;
+    padding: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: auto;
+    display: none;
+}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576px) {
+    .filter {
+        padding-top: 100px;
+        padding-bottom: 50px;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        z-index: 10;
+        overflow-x: hidden;
+    }
+
+    .filter-container {
+        width: 85%;
+        border-top: 1px solid rgba(17, 18, 18, 0.50);
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .filter-button {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .filter-mobile-logo__close {
+        display: block;
+    }
+
+}

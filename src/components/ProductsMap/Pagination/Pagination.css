@@ -1,0 +1,39 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 50px;
+}
+
+.pagination-number {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgb(128, 128, 128);
+    /* cursor: pointer; */
+}
+
+.pagination-active {
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+.pagination-arrow {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.pagination-arrow__off {
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 576px) {
+    .pagination {
+        margin-bottom: 30px;
+    }
+}

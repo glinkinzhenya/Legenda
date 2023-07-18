@@ -1,0 +1,123 @@
+.paymentAndDelivery {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: white;
+}
+
+.paymentAndDelivery-container {
+    max-width: 670px !important;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.paymentAndDelivery__title {
+    margin-bottom: 60px;
+    color: #1D1D1D;
+    text-align: center;
+    font-family: Nunito;
+    line-height: 36px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.paymentAndDelivery-box {
+    /* min-height: 200px; */
+    /* background-color:red; */
+    /* border: 1px solid grey; */
+}
+
+
+
+
+
+
+
+.accordion {
+}
+
+
+
+.accordion-body {
+    padding: 10px;
+}
+
+.accordion-item {
+    border: none !important;
+    border-bottom: 1px grey solid !important;
+    border-radius: 0 !important;
+}
+
+/* .accordion-header {
+} */
+
+.accordion-button {
+    color: black !important;
+    background-color: white;
+    border: none !important;
+       font-size: 15px!important;
+    font-weight: 400;
+    font-family: Nunito!important;
+}
+
+
+.accordion-button:not(.collapsed) {
+    color: white !important;
+    background-color: black;
+    /* border: none!important; */
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: none !important;
+    /* border: none!important; */
+}
+
+.accordion-button:focus {
+    border-color: none !important;
+}
+
+/* .accordion-button:focus {
+    outline: none!important;
+  } */
+
+.accordion-button:focus {
+    /* outline: none!important; */
+    box-shadow: none !important;
+}
+
+.accordion-item__button {
+    right: 0 !important;
+    margin-bottom: 10px !important;
+    /* border: none!important; */
+}
+
+.product-window__info-description {
+    font-size: 14px!important;
+    font-weight: 400;
+    font-family: Nunito!important;
+}
+
+
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576.8px) {
+    .paymentAndDelivery {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .paymentAndDelivery__title {
+        margin-bottom: 30px;
+        font-size: 25px;
+    }
+
+    /* .product-window__info-description {
+        font-size: 12px!important;
+    } */
+}

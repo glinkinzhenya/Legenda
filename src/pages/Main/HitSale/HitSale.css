@@ -1,0 +1,33 @@
+.hitSale {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: white;
+}
+
+.hitSale-container {}
+
+.hitSale__title {
+    margin-bottom: 50px;
+    color: #1D1D1D;
+    text-align: center;
+    font-family: Nunito;
+    line-height: 36px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+@media (max-width: 1150px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576.8px) {
+    .hitSale {
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+    .hitSale__title {
+        font-size: 25px;
+    }
+}

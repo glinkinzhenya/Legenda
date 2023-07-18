@@ -1,0 +1,36 @@
+.productsPage {
+    padding-top: 50px;
+
+    background-color: white;
+    color: black;
+}
+
+.productsPage-container {}
+
+.productsPage-title {
+    padding-top: 50px;
+    margin-bottom: 50px;
+    color: #1D1D1D;
+    text-align: center;
+    font-family: Nunito;
+    line-height: 36px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+
+@media (max-width: 1310px) {}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576.8px) {
+    .productsPage-title {
+        padding-top: 00px;
+        margin-bottom: 30px;
+        font-size: 25px;
+    }
+}

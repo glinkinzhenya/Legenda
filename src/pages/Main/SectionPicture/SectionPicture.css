@@ -1,0 +1,125 @@
+.sectionPicture {
+    height: 110vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.sectionPicture-bg {
+    /* width: 100%; */
+    width: 90%;
+    height: 100vh;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sectionPicture-bg__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sectionPicture-text {
+    margin-top: 100px;
+    margin-right: 50px;
+    position: relative;
+    width: 490px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    padding: 20px;
+}
+
+.sectionPicture-text__title {
+    color: #111212;
+    text-align: center;
+    font-size: 25px;
+    font-family: Nunito;
+    font-weight: 700;
+    line-height: 24.64px;
+    letter-spacing: 1.12px;
+}
+
+.sectionPicture-description {
+    color: #111212;
+    text-align: center;
+    font-size: 19px;
+    font-family: Nunito;
+    font-weight: 600;
+    line-height: 24.64px;
+    letter-spacing: 1.12px;
+}
+
+.sectionPicture-text__link {
+    background-color: black;
+    padding: 15px 20px;
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-family: Nunito;
+}
+
+.sectionPicture-text__link:hover {
+    color: black !important;
+    background-color: white;
+}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {
+        .sectionPicture-text {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 490px;
+        height: 300px;
+        gap: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 576px) {
+    .sectionPicture {
+        height: 65vh;
+        height: 550px;
+    }
+
+    .sectionPicture-bg {
+        /* width: 100%; */
+        width: 90%;
+        height: 60vh;
+        height: 500px;
+        top: 2.5vh;
+        top: 25px;
+    }
+    .sectionPicture-text {
+        margin-top: 266px;
+        width: 100%;
+        height: 300px;
+        max-width: 490px;
+        min-height: 300px;
+        gap: 30px;
+        padding: 6%;
+    }
+    .sectionPicture-text__title {
+        font-size: 20px;
+        font-weight: 700;
+    }
+    
+    .sectionPicture-description {
+        font-size: 15px;
+    }
+
+    .sectionPicture-text__link {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,76 @@
+.banerProduct {
+    width: 100vw;
+    /* height: 500px; */
+    height: 50vh;
+    /* background-color:red; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 4s;
+}
+
+.banerProduct-opacity {
+    opacity: 0;
+}
+
+.banerProduct__picture {
+    /* width: 100%;
+    height: 100%; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.banerProduct__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 1s ease-in-out;
+}
+
+.banerProduct__image:hover {
+    scale: 1.02;
+    /* filter: brightness(80%); */
+}
+
+.banerProduct-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.banerProduct-box__title {}
+
+.banerProduct-box__button {
+    background-color: red;
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+    transition: 1s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.banerProduct-box__button:hover {
+    background-color: white;
+    color: black;
+}
+
+
+
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576.8px) {}

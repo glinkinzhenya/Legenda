@@ -1,0 +1,129 @@
+.contacts {
+    background-color: white;
+    padding-top: 100px;
+    /* padding-bottom: 100px; */
+}
+
+.contacts-container {}
+
+.contacts__title {
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-family: Nunito;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: center;
+}
+
+.contacts-box {
+    display: flex;
+    gap: 50px;
+    width: 100%;
+}
+
+.contacts-box__text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 30%;
+}
+
+.contacts-box__address {
+    font-size: 15px;
+    font-weight: 400;
+    color: black !important;
+    /* border-bottom: 1px solid white; */
+}
+
+.contacts-box__telephone {
+    font-size: 15px;
+    font-weight: 400;
+    color: black !important;
+    /* border-bottom: 1px solid white; */
+}
+
+.contacts-box__item-image {
+    padding-right: 5px;
+}
+
+/* .contacts-box__address:hover,
+.contacts-box__telephone:hover {
+    border-bottom: 1px solid #111212;
+} */
+
+.contacts-box__social-link {}
+
+.contacts-box__item-icon {
+    color: black !important;
+    transition: 0.5s;
+    scale: 1.5;
+}
+
+.contacts-box__item-icon:hover {
+    scale: 1.7;
+}
+
+.contacts-box__map {
+    width: 70%;
+}
+
+.contacts-box__map-iframe {
+    width: 100%;
+    height: 50vh;
+}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {
+    .contacts-box__text {
+        width: 40%;
+    }
+
+    .contacts-box__map {
+        width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contacts-box {
+        gap: 50px;
+        flex-direction: column;
+    }
+
+    .contacts-box__text {
+        align-items: center;
+        width: 100%;
+    }
+
+    .contacts-box__map {
+        width: 100%;
+    }
+
+    .contacts__title {
+        margin-bottom: 30px;
+        /* text-align: center; */
+    }
+
+    .contacts-box {
+        align-items: center;
+    }
+
+    .contacts-box__map-iframe {
+        height: 40vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .contacts {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .contacts__title {
+        font-size: 25px;
+    }
+
+    .contacts-box__map-iframe {
+        height: 35vh;
+    }
+}
