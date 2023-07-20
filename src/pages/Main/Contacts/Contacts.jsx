@@ -5,7 +5,7 @@ import PaymentAndDelivery from '../PaymentAndDelivery/PaymentAndDelivery';
 import SectionCallBack from '../SectionCallBack/SectionCallBack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
-import { faInstagram, faTelegram, faViber, faSquareFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faTelegram } from '@fortawesome/free-brands-svg-icons';
 
 export default function Contacts() {
   return (

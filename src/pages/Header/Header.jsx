@@ -2,7 +2,6 @@ import React from 'react';
 import './Header.css';
 import Basket from '../../components/Basket/Basket';
 import { useLocation } from 'react-router-dom';
-import { Link } from 'react-scroll';
 import Burger from './Burger/Burger';
 
 export default function Header() {

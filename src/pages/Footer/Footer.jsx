@@ -3,7 +3,7 @@ import React from 'react';
 import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
-import { faInstagram, faTelegram, faViber, faSquareFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faTelegram } from '@fortawesome/free-brands-svg-icons';
 // import { faCode, faHighlighter, faMobilePhone } from '@fortawesome/free-solid-svg-icons';
 // import { faKorvue, faYoutube, faFacebook, faFacebookF, faSquareInstagram } from '@fortawesome/free-brands-svg-icons';
 import { useLocation } from 'react-router-dom';
