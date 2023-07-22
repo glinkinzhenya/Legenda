@@ -5,6 +5,7 @@ import { Context } from '../../../Contex';
 import { storage, firestore } from '../../../firebase';
 import RequireAdminAuth from '../RequireAdminAuth';
 import './Setting.css';
+import axios from 'axios';
 
 export default function Setting() {
   const { mainData } = useContext(Context);
@@ -290,18 +291,21 @@ export default function Setting() {
     setSearchQuery(event.target.value);
   };
 
+
+  const [data, setData] = useState(null);
+
   const handleUploadProductsCrmClick = () => {
-  
-
-
-
-
-
-
-
-
-
+  console.log('hui');
+    axios.get('http://91.239.234.14:8000/service/db/') // Замените URL на адрес вашего сервера
+      .then(response => {
+        setData(response.data); // Обработка успешного ответа
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
+ 
 
   return (
     <RequireAdminAuth>
