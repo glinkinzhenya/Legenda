@@ -20,7 +20,7 @@ export default function Test() {
 
     return (
         <div className='test'>
-            {huy && <h2>{huy.yml_catalog.shop.name}</h2>}
+            {huy ? <h2>{huy.yml_catalog.shop.name}</h2> : <h2>не работает</h2> }
         </div>
     );
 }
