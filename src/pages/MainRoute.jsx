@@ -17,6 +17,7 @@ import News2023 from './Main/Categories/CategoriesName/News2023/News2023';
 import AboutUsPage from './AboutUsPage/AboutUsPage';
 import PaymentAndDeliveryPage from './PaymentAndDeliveryPage/PaymentAndDeliveryPage';
 import Contacts from './Main/Contacts/Contacts';
+import Test from './Test/Test';
 
 export default function MainRoute() {
   return (
@@ -24,6 +25,7 @@ export default function MainRoute() {
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='/admin' element={<Admin />} />
+        <Route path='/test' element={<Test />} />
         <Route path='/setting' element={<Setting />} />
         <Route path='/contacts' element={<Contacts />} />
         <Route path='/full-vials' element={<FullVials />} />

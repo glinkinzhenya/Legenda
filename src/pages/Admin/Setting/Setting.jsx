@@ -295,16 +295,19 @@ export default function Setting() {
   const [data, setData] = useState(null);
 
   const handleUploadProductsCrmClick = () => {
-  console.log('hui');
-    axios.get('http://91.239.234.14:8000/service/db/') // Замените URL на адрес вашего сервера
+    axios.get('http://deepdive.com.ua/service/db/')
       .then(response => {
-        setData(response.data); // Обработка успешного ответа
+        setData(response[data]); // Обработка успешного ответа
         console.log(response.data);
+          console.log(data.shop);
       })
       .catch(error => {
         console.log(error);
       });
   };
+
+
+
  
 
   return (
