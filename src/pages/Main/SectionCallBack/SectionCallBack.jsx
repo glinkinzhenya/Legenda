@@ -7,7 +7,7 @@ export default function SectionCallBack() {
     <div className='sectionCallBack'>
       <div className='sectionCallBack-container container'>
 
-        <a className='sectionCallBack-link' href="https://www.instagram.com/legenda_parfum/" target="_blank" rel="noreferrer">Підписатися на наш Instagram</a>
+        <a className='sectionCallBack-link' href="https://www.instagram.com/legenda_parfum/" target="_blank" rel="noreferrer">Підписатися на наш Instagram - legenda_parfum</a>
 
         {/* <a className='sectionCallBack-picture' href="https://www.instagram.com/legenda_parfum/" target="_blank" rel="noreferrer">
           <img className='sectionCallBack-image' src="./img/logo-header.svg" alt="legenda-parfum-logo" />
