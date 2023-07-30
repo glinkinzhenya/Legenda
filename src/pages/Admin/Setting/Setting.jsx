@@ -295,7 +295,7 @@ export default function Setting() {
   const [data, setData] = useState(null);
 
   const handleUploadProductsCrmClick = () => {
-    axios.get('http://deepdive.com.ua/service/db/')
+    axios.get('https://jsonreader.onrender.com/service/db/')
       .then(response => {
         setData(response[data]); // Обработка успешного ответа
         console.log(response.data);

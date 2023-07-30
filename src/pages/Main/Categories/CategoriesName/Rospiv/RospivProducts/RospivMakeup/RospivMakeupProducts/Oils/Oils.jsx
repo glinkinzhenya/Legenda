@@ -15,11 +15,11 @@ export default function Oils() {
         <div className='productsPage-container container'>
           <h2 className='productsPage-title'>МАСЛА</h2>
 
-          <ProductsMap category={'масла'} />
+          <ProductsMap category={'7'} />
 
         </div>
       </div>
-      <HitSale category={'масла'} popular={true} />
+      <HitSale category={'7'} popular={'популярні'} />
       <News />
       <PaymentAndDelivery />
       <SectionCallBack />

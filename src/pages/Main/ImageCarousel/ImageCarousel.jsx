@@ -10,19 +10,19 @@ export default function ImageCarousel() {
   const [black, setBlack] = useState(true);
 
   useEffect(() => {
-    if (mainData) {
-      setMainData(mainData[0].carousel);
-      setTimeout(() => {
-        setBlack(false);
-      }, 800);
-    }
+    // if (mainData) {
+    //   setMainData(mainData[0].carousel);
+    //   setTimeout(() => {
+    //     setBlack(false);
+    //   }, 800);
+    // }
   }, [mainData]);
 
 
   return (
     <div className={`imageCarousel ${black ? 'imageCarousel-opacity' : ''}`}>
 
-      <Carousel interval={4000} fade slide indicators={false} controls={false} >
+      {/* <Carousel interval={4000} fade slide indicators={false} controls={false} >
         {mainData2.map((item, index) => (
           <Carousel.Item key={index}>
             <div key={index} className="image-carousel__picture">
@@ -30,7 +30,7 @@ export default function ImageCarousel() {
             </div>
           </Carousel.Item>
         ))}
-      </Carousel>
+      </Carousel> */}
 
       <a className='imageCarousel-link' target="_blank" rel="noreferrer" href="https://www.instagram.com/legenda_parfum/">
         Переглянути наш Instagram - legenda_parfum

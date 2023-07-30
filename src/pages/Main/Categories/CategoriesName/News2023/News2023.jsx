@@ -17,12 +17,11 @@ export default function News2023() {
 
         <div className='productsPage-container container'>
 
-          <ProductsMap category={'новинки 2023'} />
+          <ProductsMap category={'6'} />
 
-       
         </div>
       </div>
-      <HitSale category={'новинки 2023'} popular={true} />
+      <HitSale category={'6'} popular={'популярні'} />
       <News />
       <PaymentAndDelivery />
       <SectionCallBack />

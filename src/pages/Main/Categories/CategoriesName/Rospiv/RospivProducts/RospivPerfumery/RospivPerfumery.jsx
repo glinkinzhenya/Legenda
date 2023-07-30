@@ -15,11 +15,11 @@ export default function RospivPerfumery() {
         <div className='productsPage-container container'>
           <h2 className='productsPage-title'>РОЗПИВ ПАРФУМЕРІЯ</h2>
 
-          <ProductsMap category={'парфумерія'} />
+          <ProductsMap category={'9'} />
 
         </div>
       </div>
-      <HitSale category={'парфумерія'} popular={true} />
+      <HitSale category={'9'} popular={'популярні'} />
       <News />
       <PaymentAndDelivery />
       <SectionCallBack />

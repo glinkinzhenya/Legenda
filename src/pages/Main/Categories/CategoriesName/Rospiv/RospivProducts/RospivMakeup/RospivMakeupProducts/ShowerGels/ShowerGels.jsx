@@ -15,11 +15,11 @@ export default function ShowerGels() {
         <div className='productsPage-container container'>
           <h2 className='productsPage-title'>ГЕЛІ ДЛЯ ДУША</h2>
 
-          <ProductsMap category={'гелі для душа'} />
+          <ProductsMap category={'8'} />
 
         </div>
       </div>
-      <HitSale category={'гелі для душа'} popular={true} />
+      <HitSale category={'8'} popular={'популярні'} />
       <News />
       <PaymentAndDelivery />
       <SectionCallBack />

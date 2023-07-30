@@ -37,7 +37,7 @@ export default function RospivMakeup() {
           </div>
         </div>
       </div>
-      <HitSale popular={true} />
+      <HitSale popular={'популярні'} />
       <News />
       <PaymentAndDelivery />
       <SectionCallBack />

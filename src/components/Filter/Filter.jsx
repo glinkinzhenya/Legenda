@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../../Contex';
 import './Filter.css';
 import { Checkbox, FormControlLabel, Radio, RadioGroup, Slider } from '@mui/material';
-import { useMediaQuery } from '@mui/material';
+// import { useMediaQuery } from '@mui/material';
 
 const Filter = ({ onFilter, category }) => {
   // все товары
@@ -12,8 +12,8 @@ const Filter = ({ onFilter, category }) => {
 
   useEffect(() => {
     if (mainData) {
-      let filteredProducts = mainData[0].product.filter(
-        (item) => item.category === category,
+      let filteredProducts = mainData.filter(
+        (item) => item.categoryId === category,
       );
       setArrayProduct(filteredProducts);
     }
@@ -144,7 +144,6 @@ const Filter = ({ onFilter, category }) => {
 
   // фильтр на мобильном телефоне
   const [filterMobile, setfilterMobile] = useState(true);
-  console.log(filterMobile);
 
   useEffect(() => {
     if (window.innerWidth <= 576) {
