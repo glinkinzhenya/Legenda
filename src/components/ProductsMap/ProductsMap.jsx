@@ -125,16 +125,6 @@ export default function ProductsMap({ category, popular }) {
       localStorage.setItem('cartItems', JSON.stringify([itemToSave]));
     }
     setCartItems2([...cartItems2, itemToSave]);
-
-    // // Получение текущих элементов в корзине из локального хранилища
-    // const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    // const updatedCartItems = [...cartItems, itemToSave];
-
-    // // Сохранение обновленных элементов в локальное хранилище
-    // localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
-
-    // // Обновление состояния компонента
-    // setCartItems2(updatedCartItems);
   };
 
   
