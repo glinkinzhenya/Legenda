@@ -110,15 +110,34 @@ export default function ProductsMap({ category, popular }) {
     setOpen(true);
     setProductWindow(false);
     document.body.classList.remove('body-fixed');
+
+    // Преобразование объекта item перед сохранением в локальное хранилище
+    const itemToSave = {
+      ...item,
+      picture: item.picture.map((pic) => pic.src), // Преобразуем элементы типа DOM в массив строк с путями к картинкам
+    };
+
     const cartItems = await localStorage.getItem('cartItems');
     if (cartItems) {
       const cartItemsPars = JSON.parse(cartItems);
-      localStorage.setItem('cartItems', JSON.stringify([...cartItemsPars, item]));
+      localStorage.setItem('cartItems', JSON.stringify([...cartItemsPars, itemToSave]));
     } else {
-      localStorage.setItem('cartItems', JSON.stringify([item]));
+      localStorage.setItem('cartItems', JSON.stringify([itemToSave]));
     }
-    setCartItems2([...cartItems2, item]);
+    setCartItems2([...cartItems2, itemToSave]);
+
+    // // Получение текущих элементов в корзине из локального хранилища
+    // const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    // const updatedCartItems = [...cartItems, itemToSave];
+
+    // // Сохранение обновленных элементов в локальное хранилище
+    // localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+
+    // // Обновление состояния компонента
+    // setCartItems2(updatedCartItems);
   };
+
+  
 
   const handleClose = () => {
     setOpen(false);

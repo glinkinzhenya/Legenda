@@ -4,13 +4,14 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Context } from '../../Contex';
 import './Basket.css';
-import { width } from '@mui/system';
 
 export default function Basket() {
   const [isBasketWindowActive, setIsBasketWindowActive] = useState(false);
   const [busketNumber, setBusketNumber] = useState(0);
   const [busketNumberCorrect, setBusketNumberCorrect] = useState(0);
   const { cartItems2 } = useContext(Context);
+
+  console.log(cartItems2);
 
   const [busket, setBusket] = useState([]);
 
@@ -35,7 +36,7 @@ export default function Basket() {
   const countDuplicates = (arr, value) => {
     let count = 0;
     for (let i = 0; i < arr.length; i += 1) {
-      if (arr[i].title === value) {
+      if (arr[i].name === value) {
         count += 1;
       }
     }
@@ -48,11 +49,11 @@ export default function Basket() {
     const cartItems = localStorage.getItem('cartItems');
     if (cartItems) {
       const parsedCartItems = JSON.parse(cartItems);
-      const uniqueItems = Array.from(new Set(parsedCartItems.map((item) => item.title)));
+      const uniqueItems = Array.from(new Set(parsedCartItems.map((item) => item.name)));
 
-      const basketItems = uniqueItems.map((title) => {
-        const quantity = countDuplicates(parsedCartItems, title);
-        const item = parsedCartItems.find((item) => item.title === title);
+      const basketItems = uniqueItems.map((name) => {
+        const quantity = countDuplicates(parsedCartItems, name);
+        const item = parsedCartItems.find((item) => item.name === name);
         const total = item.price * quantity; // Вычисление суммы для каждого товара
         return { ...item, quantity, total };
       });
@@ -99,14 +100,14 @@ export default function Basket() {
     const item = updatedBasket[index];
 
     // Удаляем все копии товара из корзины
-    const updatedBasketWithoutItem = updatedBasket.filter((basketItem) => basketItem.title !== item.title);
+    const updatedBasketWithoutItem = updatedBasket.filter((basketItem) => basketItem.name !== item.name);
     setBusket(updatedBasketWithoutItem);
 
     // Удаляем все копии товара из локального хранилища
     const cartItems = localStorage.getItem('cartItems');
     if (cartItems) {
       const parsedCartItems = JSON.parse(cartItems);
-      const updatedCartItems = parsedCartItems.filter((cartItem) => cartItem.title !== item.title);
+      const updatedCartItems = parsedCartItems.filter((cartItem) => cartItem.name !== item.name);
       localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
       setBusketNumber(updatedCartItems.length);
     }
@@ -150,11 +151,11 @@ export default function Basket() {
             {busket.map((item, index) => (
               <div key={index} className='basket-window__box-item'>
                 <div className='basket-window__box-item-picture'>
-                  <img className='basket-window__box-item-img' src={item.img[0]} alt={item.img[0]} />
+                  <img className='basket-window__box-item-img' src={item.picture[0]} alt={item.picture[0]} />
                 </div>
 
                 <div className='basket-window__box-item-text__wrapper'>
-                  <div className='basket-window__box-item-title'>{item.title}</div>
+                  <div className='basket-window__box-item-title'>{item.name}</div>
                   <div className='basket-window__box-item-description'>{item.description}</div>
                 </div>
 
