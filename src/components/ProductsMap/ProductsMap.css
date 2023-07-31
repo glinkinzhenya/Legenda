@@ -343,6 +343,10 @@
     opacity: 0;
 }
 
+.body-fixed {
+    overflow: hidden !important;
+}
+
 @media (max-width: 1370px) {
     .products-map-box {
         justify-content: center;

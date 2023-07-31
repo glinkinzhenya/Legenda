@@ -132,10 +132,6 @@
     pointer-events: auto;
 }
 
-.body-fixed {
-    overflow: hidden !important;
-}
-
 @media (max-width: 576.8px) {
     .pulse-button {
         width: 55px;
