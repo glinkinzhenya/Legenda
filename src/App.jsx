@@ -11,28 +11,29 @@ export default function App() {
   const [cartItems2, setCartItems2] = useState([]);
   const [data2, setData] = useState(null);
 
+  // useEffect(() => {
+  //   firestore
+  //     .collection('data')
+  //     .get()
+  //     .then((querySnapshot) => {
+  //       const data = [];
+  //       querySnapshot.forEach((doc) => {
+  //         data.push(doc.data());
+  //       });
+  //       return data; // Вернуть значение из обработчика then()
+  //     })
+  //     .then((data) => setData(data))
+  //     .catch((error) => {
+  //       // Обработка ошибок
+  //       console.log('Ошибка получения данных из Firestore:', error);
+  //       throw error;
+  //     });
+  // }, []);
+
   useEffect(() => {
-    // firestore
-    //   .collection('data')
-    //   .get()
-    //   .then((querySnapshot) => {
-    //     const data = [];
-    //     querySnapshot.forEach((doc) => {
-    //       data.push(doc.data());
-    //     });
-    //     return data; // Вернуть значение из обработчика then()
-    //   })
-    //   .then((data) => setData(data))
-    //   .catch((error) => {
-    //     // Обработка ошибок
-    //     console.log('Ошибка получения данных из Firestore:', error);
-    //     throw error;
-    //   });
-
-
     axios.get('https://jsonreader.onrender.com/service/db/')
       .catch(error => {
-        console.log(error);
+        // console.log(error);
 
         axios.get('https://64148167e8fe5a3f3a087de9.mockapi.io/api/v1/data')
           .then(response => {

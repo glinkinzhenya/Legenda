@@ -217,7 +217,7 @@ export default function Setting() {
   const handleChangeShowPopular = (event) => {
     setShowPopular(event.target.checked);
   };
-
+  console.log(arrayProduct);
   const filteredProducts = arrayProduct.filter((item) => {
     if (selectedCategory === 'Всі товари' || item.category === selectedCategory) {
       return true;

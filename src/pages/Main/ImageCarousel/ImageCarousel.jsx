@@ -9,14 +9,14 @@ export default function ImageCarousel() {
   const [mainData2, setMainData] = useState([]);
   const [black, setBlack] = useState(true);
 
-  useEffect(() => {
-    // if (mainData) {
-    //   setMainData(mainData[0].carousel);
-    //   setTimeout(() => {
-    //     setBlack(false);
-    //   }, 800);
-    // }
-  }, [mainData]);
+  // useEffect(() => {
+  //   if (mainData) {
+  //     setMainData(mainData[0].carousel);
+  //     setTimeout(() => {
+  //       setBlack(false);
+  //     }, 800);
+  //   }
+  // }, [mainData]);
 
 
   return (

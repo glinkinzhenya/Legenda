@@ -11,8 +11,6 @@ export default function Basket() {
   const [busketNumberCorrect, setBusketNumberCorrect] = useState(0);
   const { cartItems2 } = useContext(Context);
 
-  console.log(cartItems2);
-
   const [busket, setBusket] = useState([]);
 
   // получение при перезагрузке страницы
