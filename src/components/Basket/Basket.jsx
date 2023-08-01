@@ -182,7 +182,7 @@ export default function Basket() {
               <div>{calculateTotalAmount()} UAH</div>
             </div>
 
-            <div className='all-checkout'>Оформити замовлення</div>
+            <a href="/pay" className='all-checkout'>Оформити замовлення</a>
             <div onClick={handleBasketClick} className='all-continue'>Продовжити покупки</div>
 
           </div>
