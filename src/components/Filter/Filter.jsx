@@ -293,7 +293,7 @@ const Filter = ({ onFilter, category }) => {
 
         </div>
         <div className='filter-button'>
-          <button className='filter-button__click' onClick={handleReset}>Скасувати</button>
+          <button className='filter-button__clear' onClick={handleReset}>Скасувати</button>
           <button className='filter-button__click' onClick={filterMobile ? handleFilter : handleButtonClick}>Застосувати</button>
         </div>
       </div>}

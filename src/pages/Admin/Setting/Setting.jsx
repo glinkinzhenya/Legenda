@@ -5,7 +5,6 @@ import { Context } from '../../../Contex';
 import { storage, firestore } from '../../../firebase';
 import RequireAdminAuth from '../RequireAdminAuth';
 import './Setting.css';
-import axios from 'axios';
 
 export default function Setting() {
   const { dataFireBase } = useContext(Context);

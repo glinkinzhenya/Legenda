@@ -99,6 +99,11 @@ export default function Basket() {
 
     // Удаляем все копии товара из корзины
     const updatedBasketWithoutItem = updatedBasket.filter((basketItem) => basketItem.name !== item.name);
+    // закрытие корзины есди в ней нет товаров
+    if (updatedBasketWithoutItem.length === 0) {
+      document.body.classList.toggle('body-fixed');
+      setIsBasketWindowActive(false);
+    }
     setBusket(updatedBasketWithoutItem);
 
     // Удаляем все копии товара из локального хранилища
@@ -166,7 +171,7 @@ export default function Basket() {
                 </div>
 
                 <div className='basket-window__box-item-price'>{item.total}  UAH</div>
-                <DeleteForeverIcon  className='basket-window__box-item-delete' sx={{ width: '60px', cursor: 'pointer' }} onClick={() => removeItem(index)} />
+                <DeleteForeverIcon className='basket-window__box-item-delete' sx={{ width: '60px', cursor: 'pointer' }} onClick={() => removeItem(index)} />
               </div>
             ))}
           </div>

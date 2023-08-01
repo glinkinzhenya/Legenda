@@ -95,6 +95,23 @@
     font-family: Nunito;
     font-weight: 700;
     transition: 0.5s;
+
+}
+
+.filter-button__clear {
+    text-align: center;
+    font-size: 12px;
+    font-family: Nunito;
+    font-weight: 700;
+    transition: 0.5s;
+    padding: 9px 23px;
+    border: 1px solid black;
+    background-color: rgb(255, 255, 255);
+}
+
+.filter-button__clear:hover {
+    background-color: black;
+    color: white;
 }
 
 .filter-button__click:hover {
@@ -129,6 +146,7 @@
 @media (max-width: 768px) {}
 
 @media (max-width: 576px) {
+
     .filter {
         padding-top: 100px;
         padding-bottom: 50px;

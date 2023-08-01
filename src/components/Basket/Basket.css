@@ -49,7 +49,7 @@
 
 .basket-window {
     position: fixed;
-    /* width: 1205px; */
+    width: 1300px;
     /* height: 650px; */
     min-height: 650px;
     background-color: rgb(255, 255, 255);
@@ -102,14 +102,14 @@
     min-height: 80px;
     display: grid;
     gap: 20px;
-     grid-template-areas:
+    grid-template-areas:
         "picture wrapper info numbers price delete";
     grid-template-columns: 120px 360px 175px 215px 175px 50px;
     align-items: center;
     justify-items: center;
     position: relative;
 
-   
+
 }
 
 .basket-window__box-item-picture {
@@ -303,7 +303,7 @@
         height: 65px;
         width: 75px;
         height: 75px;
-        
+
     }
 
     .basket-window__box-item-title {
@@ -319,7 +319,7 @@
 
     .basket-window__box-item-info {
         width: 65px;
-        
+
     }
 
     .basket-window__box-item-numbers {
@@ -354,8 +354,8 @@
         "picture wrapper wrapper wrapper"
         "info numbers price delete"; */
         grid-template-areas:
-        "picture wrapper wrapper wrapper wrapper "
-        "picture info numbers price delete";
+            "picture wrapper wrapper wrapper wrapper "
+            "picture info numbers price delete";
         border: none;
     }
 
@@ -367,13 +367,13 @@
     .basket-window__box-item-numbers {
         grid-template-columns: 20px 20px 20px;
         height: 32px;
-  
+
     }
 
-           .basket-window__box-item-number {
-           
-               font-size: 12px;
-           }
+    .basket-window__box-item-number {
+
+        font-size: 12px;
+    }
 
     .basket-window__box-item-price {
         font-size: 12px;
@@ -382,12 +382,13 @@
     .all-checkout {
         width: 100%;
     }
+
     .all-continue {
         width: 100%;
     }
 
     .basket-window__close {
-  
+
         height: 30px;
         height: 23px;
         padding: 5px;
