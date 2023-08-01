@@ -8,7 +8,7 @@ import './Setting.css';
 import axios from 'axios';
 
 export default function Setting() {
-  const { mainData } = useContext(Context);
+  const { dataFireBase } = useContext(Context);
   const [arrayCarousel, setArrayCarousel] = useState([]);
   const [arrayNews, setArrayNews] = useState([]);
   const [arrayProduct, setArrayProduct] = useState([]);
@@ -64,12 +64,12 @@ export default function Setting() {
   });
 
   useEffect(() => {
-    if (mainData) {
-      setArrayCarousel(mainData[0].carousel);
-      setArrayNews(mainData[0].news);
-      setArrayProduct(mainData[0].product);
+    if (dataFireBase) {
+      setArrayCarousel(dataFireBase[0].carousel);
+      setArrayNews(dataFireBase[0].news);
+      setArrayProduct(dataFireBase[0].product);
     }
-  }, [mainData]);
+  }, [dataFireBase]);
 
   const handleFileChange = (e) => {
     if (e.target.files.length > 0) {
@@ -291,24 +291,6 @@ export default function Setting() {
     setSearchQuery(event.target.value);
   };
 
-
-  const [data, setData] = useState(null);
-
-  const handleUploadProductsCrmClick = () => {
-    axios.get('https://jsonreader.onrender.com/service/db/')
-      .then(response => {
-        setData(response[data]); // Обработка успешного ответа
-        console.log(response.data);
-          console.log(data.shop);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-
-
-
- 
 
   return (
     <RequireAdminAuth>
@@ -547,10 +529,6 @@ export default function Setting() {
                 onClick={handleUploadProductsClick}
                 className="setting-product__button">Додати товар</button>
             )}
-            {/* ijtgnitgi */}
-            <button
-              onClick={handleUploadProductsCrmClick}
-              className="setting-product__button-crm">Додати в CRM</button>
 
           </div>
           <div className="setting-carusel__box2">

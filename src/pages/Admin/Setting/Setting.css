@@ -117,15 +117,6 @@
     width: 150px;
 }
 
-.setting-product__button-crm {
-    background-color: darkgreen;
-    padding: 5px 15px;
-    color: rgb(230, 216, 216);
-    border: none;
-    border-radius: 7px;
-    font-size: 13px;
-}
-
 .setting-product__box {
     padding-left: 20px;
     padding-right: 20px;

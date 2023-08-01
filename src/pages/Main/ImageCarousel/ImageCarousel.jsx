@@ -5,24 +5,24 @@ import { Carousel } from 'react-bootstrap';
 import './ImageCarousel.css';
 
 export default function ImageCarousel() {
-  const { mainData } = useContext(Context);
+  const { dataFireBase } = useContext(Context);
   const [mainData2, setMainData] = useState([]);
   const [black, setBlack] = useState(true);
 
-  // useEffect(() => {
-  //   if (mainData) {
-  //     setMainData(mainData[0].carousel);
-  //     setTimeout(() => {
-  //       setBlack(false);
-  //     }, 800);
-  //   }
-  // }, [mainData]);
+  useEffect(() => {
+    if (dataFireBase) {
+      setMainData(dataFireBase[0].carousel);
+      setTimeout(() => {
+        setBlack(false);
+      }, 800);
+    }
+  }, [dataFireBase]);
 
 
   return (
     <div className={`imageCarousel ${black ? 'imageCarousel-opacity' : ''}`}>
 
-      {/* <Carousel interval={4000} fade slide indicators={false} controls={false} >
+      <Carousel interval={4000} fade slide indicators={false} controls={false} >
         {mainData2.map((item, index) => (
           <Carousel.Item key={index}>
             <div key={index} className="image-carousel__picture">
@@ -30,7 +30,7 @@ export default function ImageCarousel() {
             </div>
           </Carousel.Item>
         ))}
-      </Carousel> */}
+      </Carousel>
 
       <a className='imageCarousel-link' target="_blank" rel="noreferrer" href="https://www.instagram.com/legenda_parfum/">
         Переглянути наш Instagram - legenda_parfum
