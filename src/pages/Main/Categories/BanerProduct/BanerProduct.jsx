@@ -14,7 +14,7 @@ export default function BanerProduct() {
     <div className={`banerProduct ${black ? 'banerProduct-opacity' : ''}`}>
 
       <a className='banerProduct__picture' href="#">
-        <img className='banerProduct__image' src="./img/moschino_banner.png" alt="legenda-parfum" />
+        <img className='banerProduct__image' src="./img/nishane_banner.png" alt="legenda-parfum" />
       </a>
       <div className='banerProduct-box'>
         <div className='banerProduct-box__title'>BLEU DE CHANEL</div>
