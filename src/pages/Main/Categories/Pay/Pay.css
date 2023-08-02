@@ -5,9 +5,15 @@
 }
 
 .pay-info {
-    background: rgb(5, 72, 255);
     height: 100%;
     width: 100%;
+}
+
+.pay-info__title {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28.8px;
 }
 
 .pay-basket {
@@ -65,15 +71,27 @@
 }
 
 .item-price {
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 21px;
+display: flex;
+justify-content: flex-end;
 }
 
-.pay-basket__price {
+.pay-basket__price-container {
+    display: flex;
+    justify-content: space-between;
+margin-top: 30px;
+
+}
+
+.pay-basket__price-title {
     font-size: 17px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
+    line-height: 25.5px;
+}
+
+.pay-basket__price-number {
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 700;
     line-height: 25.5px;
 }
