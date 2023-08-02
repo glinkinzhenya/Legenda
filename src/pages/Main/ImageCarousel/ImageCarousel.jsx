@@ -33,7 +33,7 @@ export default function ImageCarousel() {
       </Carousel>
 
       <a className='imageCarousel-link' target="_blank" rel="noreferrer" href="https://www.instagram.com/legenda_parfum/">
-        Переглянути наш Instagram - legenda_parfum
+      Підписатися на legenda_parfum
       </a>
 
     </div>
