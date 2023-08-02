@@ -9,7 +9,6 @@ import Rospiv from './Main/Categories/CategoriesName/Rospiv/Rospiv';
 import FullVials from './Main/Categories/CategoriesName/FullVials/FullVials';
 import RospivPerfumery from './Main/Categories/CategoriesName/Rospiv/RospivProducts/RospivPerfumery/RospivPerfumery';
 import Makeup from './Main/Categories/CategoriesName/Makeup/Makeup';
-import RospivMakeup from './Main/Categories/CategoriesName/Rospiv/RospivProducts/RospivMakeup/RospivMakeup';
 import ShowerGels from './Main/Categories/CategoriesName/Rospiv/RospivProducts/RospivMakeup/RospivMakeupProducts/ShowerGels/ShowerGels';
 import Oils from './Main/Categories/CategoriesName/Rospiv/RospivProducts/RospivMakeup/RospivMakeupProducts/Oils/Oils';
 import Miniatures from './Main/Categories/CategoriesName/Miniatures/Miniatures';
@@ -30,7 +29,6 @@ export default function MainRoute() {
         <Route path='/full-vials' element={<FullVials />} />
         <Route path='/rospiv' element={<Rospiv />} />
         <Route path='/perfumery' element={<RospivPerfumery />} />
-        <Route path='/rospiv-makeup' element={<RospivMakeup />} />
         <Route path='/shower-gels' element={<ShowerGels />} />
         <Route path='/oils' element={<Oils />} />
         <Route path='/miniatures' element={<Miniatures />} />
