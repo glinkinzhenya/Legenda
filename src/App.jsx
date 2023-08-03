@@ -36,6 +36,33 @@ export default function App() {
       .catch(error => {
         // console.log(error);
 
+        // axios.get('https://64148167e8fe5a3f3a087de9.mockapi.io/api/v1/data')
+        //   .then(response => {
+        //     console.log(response.data[0].yml_catalog.shop.offers.offer);
+        //     setData(response.data[0].yml_catalog.shop.offers.offer)
+        //   })
+        //   .catch(error => {
+        //     console.log(error);
+        //   });
+
+      })
+      // .finally(() => {
+      //   setTimeout(() => {
+      //     console.log('huy');
+      //     axios.get('https://64148167e8fe5a3f3a087de9.mockapi.io/api/v1/data')
+      //       .then(response => {
+      //         setData(response.data[0].yml_catalog.shop.offers.offer)
+      //       })
+      //       .catch(error => {
+      //         console.log(error);
+      //       });
+      //   }, 3000);
+      // })
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      console.log('huy');
         axios.get('https://64148167e8fe5a3f3a087de9.mockapi.io/api/v1/data')
           .then(response => {
             console.log(response.data[0].yml_catalog.shop.offers.offer);
@@ -44,19 +71,7 @@ export default function App() {
           .catch(error => {
             console.log(error);
           });
-
-      })
-      .finally(() => {
-        setTimeout(() => {
-          axios.get('https://64148167e8fe5a3f3a087de9.mockapi.io/api/v1/data')
-            .then(response => {
-              setData(response.data[0].yml_catalog.shop.offers.offer)
-            })
-            .catch(error => {
-              console.log(error);
-            });
-        }, 3000);
-      })
+    }, 3000);
   }, []);
 
   const mainData = data2;
