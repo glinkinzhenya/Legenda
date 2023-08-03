@@ -34,6 +34,27 @@ export default function Pay() {
     <div className='pay'>
       <div className='pay-info'>
 
+        <div className='pay-info__title'>Спосіб оплати</div>
+
+        <div className='pay-info__method'>
+
+          <div className='pay-info__method-item'>
+            <div className='pay-info__method-item-picture'>
+              <img className='pay-info__method-item-img' src="./img/apple-pay.jpeg" alt="" />
+            </div>
+          </div>
+
+          <div className='pay-info__method-item google'>
+            <div className='pay-info__method-item-picture google-picture'>
+              <img className='pay-info__method-item-img' src="./img/gpay.svg" alt="" />
+            </div>
+          </div>
+
+
+        </div>
+
+
+
       </div>
       <div className='pay-basket'>
         <div className='pay-basket__container'>
