@@ -33,23 +33,32 @@ export default function Pay() {
   return (
     <div className='pay'>
       <div className='pay-info'>
-        <div className='pay-info__title'>LEGENDA PARFUME</div>
+
       </div>
       <div className='pay-basket'>
         <div className='pay-basket__container'>
           {items.map((item, index) => {
-            const { quantity, picture, name, total } = item;
+            const { quantity, picture, name, total, price } = item;
             return (
-              <div key={index} className='pay-basket__item'>
-                <div className='item-picture'>
-                  {quantity > 1 && <div className='item-number'>{quantity}</div>}
-                  <img className='item-img' src={picture[0]} alt='' />
+              <div key={index} className='pay-basket__item-container'>
+                <div className='pay-basket__item'>
+                  <div className='item-picture'>
+                    {quantity > 1 && <div className='item-number'>{quantity}</div>}
+                    <img className='item-img' src={picture[0]} alt='' />
+                  </div>
+                  <div className='item-text'>
+                    <div className='item-text__name'>{name}</div>
+                    <div className='item-text__description'>3 мл</div>
+                  </div>
+                  <div className='item-price'>{price} грн</div>
+
                 </div>
-                <div className='item-text'>
-                  <div className='item-text__name'>{name}</div>
-                  <div className='item-text__description'>3 мл</div>
-                </div>
-                <div className='item-price'>{total} грн</div>
+
+                {quantity > 1 && <div className='item-price__container'>
+                  <div className='item-price__title'>Проміжний підсумок:</div>
+                  <div className='item-price__number'>{total} грн</div>
+                </div>}
+
               </div>
             );
           })}

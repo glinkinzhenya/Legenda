@@ -12,6 +12,8 @@ export default function App() {
   const [data2, setData] = useState(null);
   const [fireBase, setFireBase] = useState(null);
 
+  const currentPath = window.location.pathname;
+
   useEffect(() => {
     firestore
       .collection('data')
@@ -29,23 +31,24 @@ export default function App() {
         console.log('Ошибка получения данных из Firestore:', error);
         throw error;
       });
-  }, []);
+  }, [currentPath]);
 
   useEffect(() => {
-    axios.get('https://jsonreader.onrender.com/service/db/')
-      .catch(error => {
-        // console.log(error);
+    if (currentPath === '/') {
+      axios.get('https://jsonreader.onrender.com/service/db/')
+        .catch(error => {
+          // console.log(error);
 
-        // axios.get('https://64148167e8fe5a3f3a087de9.mockapi.io/api/v1/data')
-        //   .then(response => {
-        //     console.log(response.data[0].yml_catalog.shop.offers.offer);
-        //     setData(response.data[0].yml_catalog.shop.offers.offer)
-        //   })
-        //   .catch(error => {
-        //     console.log(error);
-        //   });
+          // axios.get('https://64148167e8fe5a3f3a087de9.mockapi.io/api/v1/data')
+          //   .then(response => {
+          //     console.log(response.data[0].yml_catalog.shop.offers.offer);
+          //     setData(response.data[0].yml_catalog.shop.offers.offer)
+          //   })
+          //   .catch(error => {
+          //     console.log(error);
+          //   });
 
-      })
+        })
       // .finally(() => {
       //   setTimeout(() => {
       //     console.log('huy');
@@ -58,10 +61,23 @@ export default function App() {
       //       });
       //   }, 3000);
       // })
-  }, []);
+    }
+  }, [currentPath]);
 
   useEffect(() => {
-    setTimeout(() => {
+
+    if (currentPath !== '/') {
+
+      axios.get('https://64148167e8fe5a3f3a087de9.mockapi.io/api/v1/data')
+        .then(response => {
+          console.log(response.data[0].yml_catalog.shop.offers.offer);
+          setData(response.data[0].yml_catalog.shop.offers.offer)
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    } else {
+      setTimeout(() => {
         axios.get('https://64148167e8fe5a3f3a087de9.mockapi.io/api/v1/data')
           .then(response => {
             console.log(response.data[0].yml_catalog.shop.offers.offer);
@@ -70,8 +86,11 @@ export default function App() {
           .catch(error => {
             console.log(error);
           });
-    }, 3000);
-  }, []);
+      }, 3000);
+    }
+
+
+  }, [currentPath]);
 
   const mainData = data2;
   const dataFireBase = fireBase;

@@ -9,13 +9,6 @@
     width: 100%;
 }
 
-.pay-info__title {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 28.8px;
-}
-
 .pay-basket {
     background: #DADADA;
     height: 100%;
@@ -30,11 +23,17 @@
     height: 90%;
 }
 
+.pay-basket__item-container {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
 .pay-basket__item {
     display: grid;
     grid-template-columns: 75px 250px 75px;
     align-items: center;
-    margin-bottom: 30px;
 }
 
 .item-number {
@@ -95,6 +94,26 @@
 .item-price {
     display: flex;
     justify-content: flex-end;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+.item-price__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-price__title {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+.item-price__number {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
 }
 
 .pay-basket__price-container {
