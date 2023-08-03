@@ -1,12 +1,16 @@
 .pay {
     height: 80vh;
     background-color: white;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    justify-items: center;
 }
 
 .pay-info {
-    height: 100%;
-    width: 100%;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
 }
 
 .pay-info__title {
@@ -23,6 +27,7 @@
     display: flex;
     justify-content: center;
     gap: 20px;
+    margin-bottom: 30px;
 }
 
 .pay-info__method-item {
@@ -45,7 +50,7 @@
 }
 
 .google-picture {
-width: 60px;
+    width: 60px;
     height: 25px;
 }
 
@@ -53,6 +58,31 @@ width: 60px;
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.pay-info__line {
+    display: flex;
+        align-items: center;
+}
+
+.pay-info__line-left {
+    width: 100%;
+    height: 1px;
+    background-color: #DFDFDF;
+}
+
+.pay-info__line-title {
+    color: #707070;
+    font-size: 14px;
+    font-weight: 400;
+    width: 200px;
+text-align: center;
+}
+
+.pay-info__line-right {
+    width: 100%;
+    height: 1px;
+    background-color: #DFDFDF;
 }
 
 .pay-basket {

@@ -50,10 +50,13 @@ export default function Pay() {
             </div>
           </div>
 
-
         </div>
 
-
+        <div className='pay-info__line'>
+          <div className='pay-info__line-left'></div>
+          <div className='pay-info__line-title'>Ваші дані</div>
+          <div className='pay-info__line-right'></div>
+        </div>
 
       </div>
       <div className='pay-basket'>
