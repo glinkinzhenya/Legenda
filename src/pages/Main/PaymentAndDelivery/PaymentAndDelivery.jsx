@@ -52,11 +52,11 @@ export default function PaymentAndDelivery() {
             </div>
             <div className="accordion-item">
               <h2 className="accordion-header">
-                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
+                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
                   4.
                 </button>
               </h2>
-              <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div id="collapseFour" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div className="accordion-body">
                   <div className='product-window__info-description'>Повернення товару у нашому магазині немає.
                   </div>
