@@ -62,7 +62,6 @@ export default function App() {
 
   useEffect(() => {
     setTimeout(() => {
-      console.log('huy');
         axios.get('https://64148167e8fe5a3f3a087de9.mockapi.io/api/v1/data')
           .then(response => {
             console.log(response.data[0].yml_catalog.shop.offers.offer);

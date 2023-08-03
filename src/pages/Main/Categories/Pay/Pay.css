@@ -37,17 +37,39 @@
     margin-bottom: 30px;
 }
 
+.item-number {
+    position: absolute;
+    right: -11px;
+    top: -11px;
+    background-color: grey;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+}
+
 .item-picture {
     width: 60px;
     height: 60px;
     border-radius: 10px;
     border: none;
+    position: relative;
+
+
 }
 
 .item-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #b3b3b3;
 }
 
 .item-text {
@@ -71,14 +93,14 @@
 }
 
 .item-price {
-display: flex;
-justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .pay-basket__price-container {
     display: flex;
     justify-content: space-between;
-margin-top: 30px;
+    margin-top: 30px;
 
 }
 
