@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './Pay.css';
 import { InputText } from '../../../../components/Forms/InputText';
 import { useForm } from 'react-hook-form';
+import MuiAlert from '@mui/material/Alert';
 import { addFormRules } from '../../../../constans/rules';
-import { Button } from '@mui/material';
+import { Button, Snackbar } from '@mui/material';
 
 export default function Pay() {
   const { control, handleSubmit, getValues, reset } = useForm();
   const [items, setItems] = useState([]);
-  console.log(items);
+  const [successOpen, setSuccessOpen] = useState(false);
 
   useEffect(() => {
     const cartItems = localStorage.getItem('cartItems');
@@ -43,9 +44,7 @@ export default function Pay() {
 
 
   const onSubmit = () => {
-  
     const { name, surname, email, number, city, mail, postOffice } = getValues();
-    console.log(name);
 
     fetch('https://jsonreader.onrender.com/service/json/', {
       method: 'POST',
@@ -63,14 +62,22 @@ export default function Pay() {
       }),
     })
       .then(() => {
+        setSuccessOpen(true);
         reset();
         localStorage.removeItem("cartItems");
-        window.location.href = '/';
+
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 3000);
+
       })
       .catch((error) => {
         console.log('Ошибка отправки данных:', error);
       });
-    
+  };
+
+  const handleSuccessClose = () => {
+    setSuccessOpen(false);
   };
 
   return (
@@ -186,9 +193,10 @@ export default function Pay() {
 
         <Button
           sx={{
-            color: 'white', backgroundColor: 'black', fontSize:'12px', width: '160px', marginLeft: 'auto', marginTop: '50px', '&:hover': {
+            color: 'white', backgroundColor: 'black', fontSize: '12px', width: '160px', marginLeft: 'auto', marginTop: '50px', '&:hover': {
               backgroundColor: '#202020',
-            }, }}
+            },
+          }}
           onClick={handleSubmit(onSubmit)}
         >Надіслати
         </Button>
@@ -227,6 +235,18 @@ export default function Pay() {
           </div>
         </div>
       </div>
+
+      <Snackbar
+        open={successOpen}
+        autoHideDuration={4000}
+        onClose={handleSuccessClose}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      >
+        <MuiAlert sx={{ fontSize: '15px' }} elevation={10} variant="filled" onClose={handleSuccessClose} severity="success">
+          Товар оформлено, скоро Вам зателефонуємо.
+        </MuiAlert>
+      </Snackbar>
+
     </div>
   );
 }
