@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './Pay.css';
+import { InputText } from '../../../../components/Forms/InputText';
+import { useForm } from 'react-hook-form';
+import { adminRules } from '../../../../constans/rules';
+import { Button } from '@mui/material';
 
 export default function Pay() {
+  const { control, handleSubmit, getValues } = useForm();
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -30,6 +35,13 @@ export default function Pay() {
     return items.reduce((total, item) => total + parseInt(item.total, 10), 0);
   };
 
+  const onSubmit = () => {
+  
+    const { name, surname, email, number, city, mail, postOffice } = getValues();
+    console.log(name);
+    
+  };
+
   return (
     <div className='pay'>
       <div className='pay-info'>
@@ -55,8 +67,101 @@ export default function Pay() {
         <div className='pay-info__line'>
           <div className='pay-info__line-left'></div>
           <div className='pay-info__line-title'>Ваші дані</div>
-          <div className='pay-info__line-right'></div>
+          <div className='pay-info__line-left'></div>
         </div>
+
+        <div className='pay-info__contacts-title'>Контакти</div>
+
+        <div className='pay-info__contacts'>
+
+          <InputText
+            control={control}
+            name='name'
+            label='Ім`я'
+            type='text'
+            rules={adminRules.login}
+            color='grey'
+            width='50%'
+          />
+
+          <InputText
+            control={control}
+            name='surname'
+            label='Фамілія'
+            type='text'
+            rules={adminRules.login}
+            color='grey'
+            width='50%'
+          />
+        </div>
+
+        <div className='pay-info__contacts-title'>Відправлення</div>
+
+        <div className='pay-info__contacts'>
+
+          <InputText
+            control={control}
+            name='email'
+            label='Email'
+            type='text'
+            rules={adminRules.login}
+            color='grey'
+            width='50%'
+          />
+
+          <InputText
+            control={control}
+            name='number'
+            label='Телефон'
+            type='text'
+            rules={adminRules.login}
+            color='grey'
+            width='50%'
+          />
+        </div>
+
+        <div className='pay-info__contacts'>
+
+          <InputText
+            control={control}
+            name='city'
+            label='Місто'
+            type='text'
+            rules={adminRules.login}
+            color='grey'
+            width='33%'
+          />
+
+          <InputText
+            control={control}
+            name='mail'
+            label='Пошта'
+            type='text'
+            rules={adminRules.login}
+            color='grey'
+            width='33%'
+          />
+
+          <InputText
+            control={control}
+            name='postOffice'
+            label='Відділення пошти'
+            type='text'
+            rules={adminRules.login}
+            color='grey'
+            width='33%'
+          />
+        </div>
+
+        <Button
+          sx={{
+            color: 'white', backgroundColor: 'black', width: '170px', marginLeft: 'auto', marginTop: '50px', '&:hover': {
+              backgroundColor: '#202020',
+            }, }}
+          size='large'
+          onClick={handleSubmit(onSubmit)}
+        >Надіслати
+        </Button>
 
       </div>
       <div className='pay-basket'>

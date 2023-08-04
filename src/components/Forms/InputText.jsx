@@ -1,6 +1,7 @@
 import { TextField } from '@mui/material';
 import React from 'react';
 import { Controller } from 'react-hook-form';
+import './InputText.css';
 
 export function InputText({
   control,
@@ -9,6 +10,7 @@ export function InputText({
   label,
   rules,
   color,
+  width,
   ...props
 }) {
   return (
@@ -19,14 +21,17 @@ export function InputText({
       rules={rules}
       render={(({ field: { onChange, value, ref }, fieldState: { error } }) => (
         <TextField
+          className="custom-focused-input"
           InputLabelProps={{
             style: {
-              color: '#F07C00', // цвет текста метки
+              color: '#707070',
+              fontSize: '14px',
             },
           }}
           InputProps={{
             style: {
-              color: color, // Color of the input text
+              color: color,
+              fontSize: '14px',
             },
           }}
           type='text'
@@ -36,6 +41,8 @@ export function InputText({
           onChange={onChange}
           margin='normal'
           error={error}
+          // fullWidth
+          style={{ width: width }}
           helperText={error ? error.message : ''}
           {...props}
         />
