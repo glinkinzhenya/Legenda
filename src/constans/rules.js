@@ -16,7 +16,10 @@ export const adminRules = {
 
 export const addFormRules = {
   name: {
-    required: { value: true, message: rulesText.required('ПІБ') },
+    required: { value: true, message: rulesText.required('Ім`я') },
+  },
+  surname: {
+    required: { value: true, message: addFormRulesImage.required('Прізвище') },
   },
   mail: {
     required: { value: true, message: rulesText.required('E-mail') },
@@ -28,6 +31,9 @@ export const addFormRules = {
     required: { value: true, message: addFormRulesImage.required('Місто') },
   },
   department: {
-    required: { value: true, message: addFormRulesImage.required('Відділення') },
+    required: { value: true, message: rulesText.required('яка у вас пошта') },
+  },
+  postOffice: {
+    required: { value: true, message: addFormRulesImage.required('номер відділення') },
   },
 };

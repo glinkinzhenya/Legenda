@@ -1,5 +1,5 @@
 .pay {
-    height: 100vh;
+   min-height: 100vh;
     background-color: white;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -11,6 +11,7 @@
     width: 600px;
     display: flex;
     flex-direction: column;
+        padding-bottom: 60px;
 }
 
 .pay-info__title {

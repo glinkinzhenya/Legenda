@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './Pay.css';
 import { InputText } from '../../../../components/Forms/InputText';
 import { useForm } from 'react-hook-form';
-import { adminRules } from '../../../../constans/rules';
+import { addFormRules } from '../../../../constans/rules';
 import { Button } from '@mui/material';
 
 export default function Pay() {
-  const { control, handleSubmit, getValues } = useForm();
+  const { control, handleSubmit, getValues, reset } = useForm();
   const [items, setItems] = useState([]);
+  console.log(items);
 
   useEffect(() => {
     const cartItems = localStorage.getItem('cartItems');
@@ -32,13 +33,43 @@ export default function Pay() {
   };
 
   const calculateTotalAmount = () => {
-    return items.reduce((total, item) => total + parseInt(item.total, 10), 0);
+    return items.reduce((total, item) => {
+      const itemTotal = item.total !== undefined ? parseInt(item.total, 10) : parseInt(item.price, 10);
+      return total + itemTotal;
+    }, 0);
   };
+
+
+
 
   const onSubmit = () => {
   
     const { name, surname, email, number, city, mail, postOffice } = getValues();
     console.log(name);
+
+    fetch('https://jsonreader.onrender.com/service/json/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        "Ім`я": name,
+        "Прізвище": surname,
+        "Номер": number,
+        "E-mail": email,
+        "місто": city,
+        "пошта": postOffice,
+        "відділення": mail,
+      }),
+    })
+      .then(() => {
+        reset();
+        localStorage.removeItem("cartItems");
+        window.location.href = '/';
+      })
+      .catch((error) => {
+        console.log('Ошибка отправки данных:', error);
+      });
     
   };
 
@@ -79,7 +110,7 @@ export default function Pay() {
             name='name'
             label='Ім`я'
             type='text'
-            rules={adminRules.login}
+            rules={addFormRules.name}
             color='grey'
             width='50%'
           />
@@ -87,9 +118,9 @@ export default function Pay() {
           <InputText
             control={control}
             name='surname'
-            label='Фамілія'
+            label='Прізвище'
             type='text'
-            rules={adminRules.login}
+            rules={addFormRules.surname}
             color='grey'
             width='50%'
           />
@@ -104,7 +135,7 @@ export default function Pay() {
             name='email'
             label='Email'
             type='text'
-            rules={adminRules.login}
+            rules={addFormRules.mail}
             color='grey'
             width='50%'
           />
@@ -114,7 +145,7 @@ export default function Pay() {
             name='number'
             label='Телефон'
             type='text'
-            rules={adminRules.login}
+            rules={addFormRules.number}
             color='grey'
             width='50%'
           />
@@ -127,7 +158,7 @@ export default function Pay() {
             name='city'
             label='Місто'
             type='text'
-            rules={adminRules.login}
+            rules={addFormRules.city}
             color='grey'
             width='33%'
           />
@@ -137,7 +168,7 @@ export default function Pay() {
             name='mail'
             label='Пошта'
             type='text'
-            rules={adminRules.login}
+            rules={addFormRules.department}
             color='grey'
             width='33%'
           />
@@ -147,7 +178,7 @@ export default function Pay() {
             name='postOffice'
             label='Відділення пошти'
             type='text'
-            rules={adminRules.login}
+            rules={addFormRules.postOffice}
             color='grey'
             width='33%'
           />
@@ -155,10 +186,9 @@ export default function Pay() {
 
         <Button
           sx={{
-            color: 'white', backgroundColor: 'black', width: '170px', marginLeft: 'auto', marginTop: '50px', '&:hover': {
+            color: 'white', backgroundColor: 'black', fontSize:'12px', width: '160px', marginLeft: 'auto', marginTop: '50px', '&:hover': {
               backgroundColor: '#202020',
             }, }}
-          size='large'
           onClick={handleSubmit(onSubmit)}
         >Надіслати
         </Button>
