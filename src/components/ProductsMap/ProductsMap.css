@@ -155,7 +155,7 @@
     background-color: rgba(222, 222, 222, 0.595);
     z-index: 9;
     opacity: 0;
-    transition: opacity .5s;
+    transition: opacity 1s;
     pointer-events: none;
 }
 

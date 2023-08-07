@@ -23,14 +23,14 @@ export default function Setting() {
   const [display, setDisplay] = useState(false);
 
   const categoryArray = [
-    'повні флакони',
-    'парфумерія',
-    'гелі для душа',
-    'масла',
-    'мініатюри',
-    'косметика',
-    'новинки 2023',
+    '/rospiv',
+    '/miniatures',
+    '/news2023',
+    '/makeup',
+    '/perfumery',
+    '/shower-gels',
     '/full-vials',
+    '/oils',
   ];
 
   const brands = [
