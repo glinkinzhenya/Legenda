@@ -1,9 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import {
-  Alert,
-  Button,
   IconButton,
-  Snackbar,
 } from '@mui/material';
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
@@ -11,15 +8,14 @@ import { Context } from '../../Contex';
 import Filter from '../Filter/Filter';
 import './ProductsMap.css';
 import Pagination from './Pagination/Pagination';
+import WindowProduct from '../WindowProduct/WindowProduct';
 
 export default function ProductsMap({ category, popular }) {
   const [arrayProduct, setArrayProduct] = useState([]);
   const [arrayProductPopularOne, setArrayProductPopularOne] = useState('');
   const [arrayProductPopularTwo, setArrayProductPopularTwo] = useState('');
   const [arrayProductPopularThree, setArrayProductPopularThree] = useState('');
-  const { mainData, cartItems2, setCartItems2 } = useContext(Context);
-
-  const [mainImg, setMainImg] = useState('');
+  const { mainData, setWindowOpen } = useContext(Context);
 
   // скачивание изображений
   const loadImage = (src) => new Promise((resolve, reject) => {
@@ -48,7 +44,6 @@ export default function ProductsMap({ category, popular }) {
         ...item,
         picture: loadedImagesArrays[index],
       }));
-      console.log(productsWithImages);
       setArrayProduct(productsWithImages);
     } catch (error) {
       console.error(error);
@@ -72,7 +67,6 @@ export default function ProductsMap({ category, popular }) {
         }
         loadImagesForArray(filteredProducts);
         // setArrayProduct(filteredProducts)
-        console.log(filteredProducts);
 
       } else if (popular) {
         let filteredProducts = mainData.filter(
@@ -89,66 +83,10 @@ export default function ProductsMap({ category, popular }) {
 
   }, [mainData, category, popular]);
 
-
-  const [productWindow, setProductWindow] = useState(false);
-  const [product, setProduct] = useState([]);
-
   const touchProduct = (item) => {
-    setProduct(item);
-    setMainImg(item.picture[0])
-    setProductWindow(true);
-    document.body.classList.add('body-fixed');
-  };
-  const touchProductClose = () => {
-    setProductWindow(false);
-    document.body.classList.remove('body-fixed');
+    setWindowOpen(item);
   };
 
-  const [open, setOpen] = useState(false);
-
-  const handleClick = async (item) => {
-    setOpen(true);
-    setProductWindow(false);
-    document.body.classList.remove('body-fixed');
-
-    // Преобразование объекта item перед сохранением в локальное хранилище
-    const itemToSave = {
-      ...item,
-      picture: item.picture.map((pic) => pic.src), // Преобразуем элементы типа DOM в массив строк с путями к картинкам
-    };
-
-    const cartItems = await localStorage.getItem('cartItems');
-    if (cartItems) {
-      const cartItemsPars = JSON.parse(cartItems);
-      localStorage.setItem('cartItems', JSON.stringify([...cartItemsPars, itemToSave]));
-    } else {
-      localStorage.setItem('cartItems', JSON.stringify([itemToSave]));
-    }
-    setCartItems2([...cartItems2, itemToSave]);
-  };
-
-  
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const [activeSize, setActiveSize] = useState('3 ml');
-
-  const handleSizeClick = (size) => {
-    setActiveSize(size);
-  };
-
-  const [fadeOut, setFadeOut] = useState(false);
-
-
-  const handleImageClick = (imageGallery) => {
-    setFadeOut(true)
-    setTimeout(() => {
-      setFadeOut(false);
-      setMainImg(imageGallery)
-    }, 300);
-  };
 
   // популярные стрелочки
   const [startIndexOne, setStartIndexOne] = useState(0);
@@ -347,9 +285,10 @@ export default function ProductsMap({ category, popular }) {
 
   return (
     <div className='products-map__pagination'>
-      {/* <div className={`products-map ${popular ? 'products-map-popular' : ''}`}> */}
+
+      <WindowProduct />
+
       <div className={`${popular ? 'products-map-popular' : 'products-map'}`}>
-        <div onClick={touchProductClose} className={`product-window__blur ${productWindow ? 'product-window__blur__active' : ''}`}></div>
 
         {!popular && <Filter category={category} onFilter={handleFilter} />}
 
@@ -401,89 +340,7 @@ export default function ProductsMap({ category, popular }) {
                 </div>}
               </>
             )}
-
-
-
-          {productWindow && <div className='product-window'>
-            <img onClick={touchProductClose} className='product-window__close-product' src="./img/close-window.svg" alt="" />
-
-            <div className='product-window__photo'>
-
-              <div className='product-window__gallary'>
-                {product.picture && product.picture.map((item, index) => (
-                  <div onClick={() => handleImageClick(item)} key={index} className='product-window__gallary-picture'>
-                    <img className='product-window__gallary-img' src={item.currentSrc} alt='' />
-                  </div>
-                ))}
-              </div>
-
-              <div className={`product-window__gallary-main ${fadeOut ? 'fade-out' : ''}`}>
-                {mainImg && <img className='product-window__gallary-main-img' src={mainImg.currentSrc} alt="" />}
-              </div>
-
-            </div>
-            <div className='product-window__info'>
-              <h2 className='product-window__info-title'>{product.name}</h2>
-
-              <div className='product-window__info-size'>Розмір</div>
-              <div className='product-window__info-size-box'>
-                <div
-                  className={`product-window__info-size-item ${activeSize === '3 ml' ? 'product-window__info-size-item_active' : ''}`}
-                  onClick={() => handleSizeClick('3 ml')}
-                >
-                  3 ml
-                </div>
-                <div
-                  className={`product-window__info-size-item ${activeSize === '35 ml' ? 'product-window__info-size-item_active' : ''}`}
-                  onClick={() => handleSizeClick('35 ml')}
-                >
-                  35 ml
-                </div>
-                <div
-                  className={`product-window__info-size-item ${activeSize === '50 ml' ? 'product-window__info-size-item_active' : ''}`}
-                  onClick={() => handleSizeClick('50 ml')}
-                >
-                  50 ml
-                </div>
-              </div>
-
-              <div className='product-window__info-size'>Опис</div>
-
-              <div className='product-window__info-description'>{product.description}</div>
-
-              <div className='product-window__info-size'>Ціна</div>
-
-              <div className='product-window__info-price'>{product.price} €</div>
-
-              <div className='product-window__info-true'>
-                <div className='product-window__info-true-cirle__main'>
-                  <div className='product-window__info-true-cirle__second'></div>
-                </div>
-                <div className='product-window__info-true-title'>в наявності</div>
-              </div>
-
-              <h2 className='product-window__info-article'>Артикул: {product.article}</h2>
-
-              <Button className='accordion-item__button' onClick={() => handleClick(product)} sx={{
-                backgroundColor: 'black',
-                '&:hover': { backgroundColor: 'black', color: 'white !important' },
-                fontSize: '14px',
-                fontFamily: 'Nunito !important',
-                fontWeight: '700',
-                width: '100%',
-                borderRadius: 'none !important',
-              }} variant="contained">Додати до кошику</Button>
-
-            </div>
-          </div>}
-          <Snackbar anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} open={open} autoHideDuration={2000} onClose={handleClose}>
-            <Alert onClose={handleClose} severity="success" sx={{ width: '100%', fontSize: '13px', height: '50px' }}>
-              Товар додано до кошику
-            </Alert>
-          </Snackbar>
         </div>
-
-
 
         {popular && <IconButton
           onClick={touchPopularRight}
@@ -491,7 +348,6 @@ export default function ProductsMap({ category, popular }) {
         >
           <ArrowForwardIosOutlinedIcon sx={{ cursor: 'pointer' }} />
         </IconButton>}
-
       </div>
       {!popular && <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={onPageChange} />}
     </div>

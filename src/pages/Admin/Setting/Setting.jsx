@@ -30,6 +30,7 @@ export default function Setting() {
     'мініатюри',
     'косметика',
     'новинки 2023',
+    '/full-vials',
   ];
 
   const brands = [
@@ -51,7 +52,7 @@ export default function Setting() {
   ]
 
   const [product, setProduct] = useState({
-    title: '',
+    name: '',
     price: '',
     description: '',
     category: '',
@@ -117,7 +118,9 @@ export default function Setting() {
           let update = {};
           if (product) {
             const updatedArray = array.map((item) => ({ ...item }));
-            updatedArray.push({ ...product, img: urls });
+            updatedArray.push({
+              ...product, picture: urls
+            });
             update = { [folderPath]: updatedArray };
           } else {
             update = { [folderPath]: [...array, ...urls] };
@@ -187,7 +190,7 @@ export default function Setting() {
     if (folderPath !== 'product') {
       updatedArray = array.filter((item) => item !== url);
     } else {
-      updatedArray = array.filter((item) => item.img !== url);
+      updatedArray = array.filter((item) => item.picture !== url);
     }
 
     // Удаляем товар из базы данных
@@ -224,7 +227,7 @@ export default function Setting() {
     return false;
   }).filter((item) => {
     const lowerCaseSearchQuery = searchQuery.toLowerCase();
-    const lowerCaseTitle = item.title.toLowerCase();
+    const lowerCaseTitle = item.name.toLowerCase();
     const lowerCaseArticle = item.article.toLowerCase();
 
     return (
@@ -348,18 +351,18 @@ export default function Setting() {
             {editProduct ? (
               <input
                 className="setting-product__input"
-                name="title"
+                name="name"
                 onChange={(e) => handleEditInputChange(e, editProduct)}
-                value={editProduct.title}
+                value={editProduct.name}
                 type="text"
                 placeholder="Назва товару"
               />
             ) : (
               <input
                 className="setting-product__input"
-                name="title"
+                name="name"
                 onChange={handleInputChange}
-                value={product.title}
+                value={product.name}
                 type="text"
                 placeholder="Назва товару"
               />
@@ -569,10 +572,10 @@ export default function Setting() {
             <div key={index} className={`${display ? 'setting-product__box-items' : 'setting-product__box-items__display'}`}>
               <div className={`${display ? 'setting-product__box-item' : 'setting-product__box-item__display'}`}>
                 <div className={`${display ? 'setting-product__box-item__picture' : 'setting-product__box-item__picture__display'}`}>
-                  <img className='setting-product__box-item__img' src={item.img[0]} alt={item.img[0]} />
+                  <img className='setting-product__box-item__img' src={item.picture[0]} alt={item.picture[0]} />
                 </div>
                 <div className={`${display ? 'setting-product__box-item-info' : 'setting-product__box-item-info__display'}`}>
-                  <div className={`${display ? 'setting-product__box-item-info__title' : 'setting-product__box-item-info__title__display'}`}>{item.title}</div>
+                  <div className={`${display ? 'setting-product__box-item-info__title' : 'setting-product__box-item-info__title__display'}`}>{item.name}</div>
                   <div className={`${display ? 'setting-product__box-item-info__price' : 'setting-product__box-item-info__price__display'}`}>{item.price} UAH</div>
                   <div className={`${display ? 'setting-product__box-item-info__description' : 'setting-product__box-item-info__description__display'}`}>{item.description}</div>
                   <div className={`${display ? 'setting-product__box-item-info__description' : 'setting-product__box-item-info__description__display'}`}>{item.category}</div>

@@ -246,7 +246,6 @@ export default function Pay() {
           Товар оформлено, скоро Вам зателефонуємо.
         </MuiAlert>
       </Snackbar>
-
     </div>
   );
 }
