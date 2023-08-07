@@ -587,7 +587,7 @@ export default function Setting() {
                 </div>
               </div>
               <button className="setting-carusel__item-edit" onClick={() => setEditProduct(item, setEditProductOrigin(item))}>Редагувати</button>
-              <button className="setting-carusel__item-delete" onClick={() => handleDelete(item.img, 'product', arrayProduct, setProgressProduct(true))}>Видалити</button>
+              <button className="setting-carusel__item-delete" onClick={() => handleDelete(item.picture, 'product', arrayProduct, setProgressProduct(true))}>Видалити</button>
             </div>
           ))}
 
