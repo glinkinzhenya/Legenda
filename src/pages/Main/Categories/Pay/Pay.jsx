@@ -11,6 +11,8 @@ export default function Pay() {
   const [items, setItems] = useState([]);
   const [successOpen, setSuccessOpen] = useState(false);
 
+  console.log(items);
+
   useEffect(() => {
     const cartItems = localStorage.getItem('cartItems');
     const data = JSON.parse(cartItems);
