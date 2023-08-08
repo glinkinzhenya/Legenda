@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './Pay.css';
-import { InputText } from '../../../../components/Forms/InputText';
+import { InputText } from '../Forms/InputText';
 import { useForm } from 'react-hook-form';
 import MuiAlert from '@mui/material/Alert';
-import { addFormRules } from '../../../../constans/rules';
+import { addFormRules } from '../../constans/rules';
 import { Button, Snackbar } from '@mui/material';
 
 export default function Pay() {
@@ -43,34 +43,43 @@ export default function Pay() {
   };
 
 
-
+  const itemsObject = items.reduce((acc, item, index) => {
+    const itemInfo = `Назва товару: ${item.name},\nЦіна товару: ${item.price},\nКількість: ${item.quantity || 1}`;
+    acc[`Товар ${index + 1}`] = itemInfo;
+    return acc;
+  }, {});
 
   const onSubmit = () => {
     const { name, surname, email, number, city, mail, postOffice } = getValues();
+
+    // Собираем данные для отправки
+    const dataToSend = {
+      "Ім`я": name,
+      "Прізвище": surname,
+      "Номер": number,
+      "E-mail": email,
+      "місто": city,
+      "пошта": postOffice,
+      "відділення": mail,
+      '----------': '--------',
+      ...itemsObject,  // Вставляем строки с товарами в объект
+    };
 
     fetch('https://jsonreader.onrender.com/service/json/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        "Ім`я": name,
-        "Прізвище": surname,
-        "Номер": number,
-        "E-mail": email,
-        "місто": city,
-        "пошта": postOffice,
-        "відділення": mail,
-      }),
+      body: JSON.stringify(dataToSend),
     })
       .then(() => {
         setSuccessOpen(true);
-        reset();
-        localStorage.removeItem("cartItems");
+        // reset();
+        // localStorage.removeItem("cartItems");
 
-        setTimeout(() => {
-          window.location.href = '/';
-        }, 3000);
+        // setTimeout(() => {
+        //   window.location.href = '/';
+        // }, 3000);
 
       })
       .catch((error) => {

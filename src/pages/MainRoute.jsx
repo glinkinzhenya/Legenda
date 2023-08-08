@@ -16,7 +16,7 @@ import News2023 from './Main/Categories/CategoriesName/News2023/News2023';
 import AboutUsPage from './AboutUsPage/AboutUsPage';
 import PaymentAndDeliveryPage from './PaymentAndDeliveryPage/PaymentAndDeliveryPage';
 import Contacts from './Main/Contacts/Contacts';
-import Pay from './Main/Categories/Pay/Pay';
+import Pay from './../components/Pay/Pay';
 
 export default function MainRoute() {
   return (
