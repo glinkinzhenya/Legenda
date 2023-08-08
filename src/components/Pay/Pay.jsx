@@ -74,13 +74,12 @@ export default function Pay() {
     })
       .then(() => {
         setSuccessOpen(true);
-        // reset();
-        // localStorage.removeItem("cartItems");
+        reset();
+        localStorage.removeItem("cartItems");
 
-        // setTimeout(() => {
-        //   window.location.href = '/';
-        // }, 3000);
-
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 3000);
       })
       .catch((error) => {
         console.log('Ошибка отправки данных:', error);
