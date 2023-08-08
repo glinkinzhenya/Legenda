@@ -127,7 +127,7 @@ export default function WindowProduct() {
 
           <h2 className='window__info-article'>Артикул: {product.article}</h2>
 
-          <Button className='accordion-item__button' onClick={() => handleClick(product)} sx={{
+          <Button onClick={() => handleClick(product)} sx={{
             backgroundColor: 'black',
             '&:hover': { backgroundColor: 'black', color: 'white !important' },
             fontSize: '14px',
