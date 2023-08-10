@@ -373,6 +373,10 @@
         font-size: 12px;
     }
 
+    .basket-window__box {
+        min-height: 50vh;
+    }
+
     .all-checkout {
         width: 100%;
     }
