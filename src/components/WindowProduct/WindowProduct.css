@@ -267,12 +267,15 @@
         margin-bottom: 10px;
         flex-direction: column-reverse;
         justify-content: space-between;
-        align-items: center;
+        /* align-items: center; */
     }
 
     .window__close-product {
-        right: 15px;
-        top: 15px;
+        right: 5%;
+        top: 20px;
+        height: 23px;
+        padding: 5px;
+        width: 23px;
     }
 
     .window__gallary-picture {

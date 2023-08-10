@@ -345,33 +345,27 @@
     }
 
     .basket-window__box-item {
-        /* grid-template-columns: 70px 185px 65px 60px 88px 30px; */
-        /* grid-template-columns: 70px 1fr 70px; */
-        /* grid-template-columns: 65px 1fr 88px 30px; */
-        grid-template-columns: 75px 66px 1fr 69px 12px;
+        grid-template-columns: 22% 20% 18% 23% 5%;
         padding: 0px;
-        /* grid-template-areas:
-        "picture wrapper wrapper wrapper"
-        "info numbers price delete"; */
         grid-template-areas:
             "picture wrapper wrapper wrapper wrapper "
             "picture info numbers price delete";
         border: none;
+        gap: 3px 10px
     }
 
     .basket-window__box-item-info {
         font-size: 12px;
         height: 32px;
+        margin-right: auto;
     }
 
     .basket-window__box-item-numbers {
         grid-template-columns: 20px 20px 20px;
         height: 32px;
-
     }
 
     .basket-window__box-item-number {
-
         font-size: 12px;
     }
 
@@ -388,13 +382,15 @@
     }
 
     .basket-window__close {
-
-        height: 30px;
         height: 23px;
         padding: 5px;
         right: 20px;
         top: 43px;
-        width: 30px;
         width: 23px;
+    }
+
+    .basket-window {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }

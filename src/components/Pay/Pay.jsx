@@ -91,6 +91,7 @@ export default function Pay() {
   };
 
   return (
+    <div className='pay-color'>
     <div className='pay'>
       <div className='pay-info'>
 
@@ -256,6 +257,7 @@ export default function Pay() {
           Товар оформлено, скоро Вам зателефонуємо.
         </MuiAlert>
       </Snackbar>
+      </div>
     </div>
   );
 }

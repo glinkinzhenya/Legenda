@@ -44,13 +44,13 @@
 .banerProduct-box__title {}
 
 .banerProduct-box__button {
-    background-color: red;
     padding: 10px 15px;
     background-color: black;
     color: white;
     transition: 1s;
     cursor: pointer;
     text-align: center;
+    font-size: 16px;
 }
 
 .banerProduct-box__button:hover {
@@ -66,4 +66,19 @@
 
 @media (max-width: 768px) {}
 
-@media (max-width: 576.8px) {}
+@media (max-width: 576.8px) {
+
+    .banerProduct {
+        width: 100vw;
+        height: 30vh;
+    }
+
+    .banerProduct-box {
+        left: 15%;
+    }
+
+    .banerProduct-box__button {
+        font-size: 14px;
+    }
+
+}

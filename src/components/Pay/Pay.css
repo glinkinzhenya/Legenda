@@ -1,17 +1,25 @@
+.pay-color {
+    background-color: red;
+    background: linear-gradient(to right, white 50%, #DADADA 50%);
+}
+
 .pay {
-   min-height: 100vh;
+    min-height: 100vh;
     background-color: white;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: start;
     justify-items: center;
+    max-width: 1370px !important;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .pay-info {
     width: 600px;
     display: flex;
     flex-direction: column;
-        padding-bottom: 60px;
+    padding-bottom: 60px;
 }
 
 .pay-info__title {
@@ -115,7 +123,7 @@
 
 .pay-basket__item {
     display: grid;
-    grid-template-columns: 75px 250px 75px;
+    grid-template-columns: 75px 1fr 75px;
     align-items: center;
 }
 
@@ -139,7 +147,6 @@
 .item-picture {
     width: 60px;
     height: 60px;
-    border-radius: 10px;
     border: none;
     position: relative;
 
@@ -150,7 +157,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
     border: 1px solid #b3b3b3;
 }
 
@@ -218,4 +224,68 @@
     font-style: normal;
     font-weight: 700;
     line-height: 25.5px;
+}
+
+@media (max-width: 1200px) {
+    .pay-info {
+        padding: 0px 40px 60px 40px;
+        max-width: 600px;
+        width: unset;
+    }
+}
+
+@media (max-width: 992px) {
+    .pay-basket__container {
+        width: unset;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .pay {
+        display: flex;
+        flex-direction: column-reverse;
+        min-height: unset;
+        align-items: center;
+    }
+
+    .pay-info {
+        max-width: unset;
+        min-width: 100%;
+        margin-top: 40px;
+    }
+
+    .pay-color {
+        background-color: unset;
+    }
+
+    .pay-basket {
+        background: unset;
+    }
+
+    .pay-basket__container {
+        margin-top: 30px;
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .pay-info__method-item {
+        width: 100%;
+    }
+
+    .pay-basket__container {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+
+        .pay-info {
+            padding: 0px 15px 60px 15px;
+        }
+
 }
