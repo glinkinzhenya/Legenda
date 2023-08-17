@@ -38,7 +38,6 @@ export default function BanerProduct() {
         ...item,
         picture: loadedImagesArrays[index],
       }));
-      console.log(productsWithImages);
       setData(productsWithImages);
     } catch (error) {
       console.error(error);

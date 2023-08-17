@@ -17,6 +17,8 @@ export default function WindowProduct() {
 
   const pathname = window.location.pathname;
 
+  console.log(windowOpen);
+
   useEffect(() => {
     const segments = decodeURIComponent(pathname).split('/');
 
@@ -40,32 +42,31 @@ export default function WindowProduct() {
     if (windowOpen) {
       document.body.classList.add('body-fixed');
 
-      setMainImg(windowOpen.picture[0])
-
+      setMainImg(windowOpen.picture[0]);
       setProduct(windowOpen);
 
-      if (!linkSwitch) {
-        const newPath = `/${mainPass[1]}/${windowOpen['@id']}`;
-        window.history.pushState(null, null, newPath);
-      } else {
-        const newPath = `/${windowOpen['@id']}`;
-        window.history.pushState(null, null, newPath);
+      let newPath = "/";
+      const categoryPaths = {
+        '2': '/full-vials',
+        '7': '/oils',
+        '8': '/shower-gels',
+        '4': '/miniatures',
+        '5': '/makeup',
+        '6': '/news2023'
+      };
+
+      if (categoryPaths[windowOpen.categoryId]) {
+        newPath = `${categoryPaths[windowOpen.categoryId]}/${windowOpen['@id']}`;
       }
 
+      window.history.pushState(null, null, newPath);
       setFlag(true);
-
     } else if (mainPass && flag) {
-
-      if (!linkSwitch) {
-        const newPath = `/${mainPass[1]}`;
-        window.history.pushState(null, null, newPath);
-      } else {
-        const newPath = `/`;
-        window.history.pushState(null, null, newPath);
-      }
+      const newPath = linkSwitch ? '/' : `/${mainPass[1]}`;
+      window.history.pushState(null, null, newPath);
     }
+  }, [windowOpen, mainPass, flag]);
 
-  }, [windowOpen, mainPass]);
 
 
   const handleImageClick = (imageGallery) => {
