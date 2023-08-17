@@ -133,7 +133,7 @@ export default function Basket() {
       {busketNumber > 0
         ? (
           <div>
-            <img onClick={handleBasketClick} className='basket-image' src="./img/logo-basket.svg" alt="" />
+            <img onClick={handleBasketClick} className='basket-image' src="/img/logo-basket.svg" alt="" />
             <div className='basket-number'>{busketNumber}</div>
           </div>
         )
@@ -144,7 +144,7 @@ export default function Basket() {
 
 
       {isBasketWindowActive && <div className='basket-window'>
-        <img onClick={handleBasketClick} className='basket-window__close' src="./img/close-window.svg" alt="" />
+        <img onClick={handleBasketClick} className='basket-window__close' src="/img/close-window.svg" alt="" />
 
 
         <div className='basket-window__title'>ВАШ КОШИК</div>

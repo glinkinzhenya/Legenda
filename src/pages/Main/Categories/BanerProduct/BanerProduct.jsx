@@ -10,6 +10,9 @@ export default function BanerProduct() {
 
   const pathname = window.location.pathname;
 
+  const segments = decodeURIComponent(pathname).split('/');
+
+
   const loadImage = (src) => new Promise((resolve, reject) => {
     const image = new Image();
     image.onload = () => resolve(image);
@@ -44,12 +47,11 @@ export default function BanerProduct() {
 
   useEffect(() => {
     if (dataFireBase) {
-      const filteredProducts = dataFireBase[0].product.filter((item) => item.category === pathname)
+      const filteredProducts = dataFireBase[0].product.filter((item) => item.category === segments[1])
       if (filteredProducts) {
         const arrayLength = filteredProducts.length;
         const randomIndex = Math.floor(Math.random() * arrayLength);
         // setData(filteredProducts[randomIndex]);
-        console.log(filteredProducts[randomIndex]);
         loadImagesForArray([filteredProducts[randomIndex]]);
         setTimeout(() => {
           setBlack(false);
@@ -64,20 +66,20 @@ export default function BanerProduct() {
   };
 
   return (
-  
+
     <div className={`banerProduct ${black ? 'banerProduct-opacity' : ''}`}>
 
       <WindowProduct />
 
       <div className='banerProduct__picture'>
-       <img className='banerProduct__image' src={data ? data[0].picture[0].currentSrc : ''} alt="legenda-parfum" />
+        <img className='banerProduct__image' src={data ? data[0].picture[0].currentSrc : ''} alt="legenda-parfum" />
       </div>
       <div className='banerProduct-box'>
         <div className='banerProduct-box__title'>{data ? data[0].name : ''}</div>
         <div onClick={() => touchProduct(data[0])} className='banerProduct-box__button'>Детальніше</div>
       </div>
 
-      </div>
- 
+    </div>
+
   );
 }

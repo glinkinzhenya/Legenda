@@ -7,12 +7,12 @@ export default function News() {
     {
       // title: 'НОВИНКА',
       // description: 'ТУТ ВИ ЗНАЙДЕТЕ НАЙСВІЖІШІ АРОМАТИ',
-      img: './img/2.jpg'
+      img: '/img/2.jpg'
     },
     {
       // title: 'АРОМАТ МІСЯЦЯ',
       // description: 'ТУТ ВИ ЗНАЙДЕТЕ АРОМАТ МІСЯЦЯ ЗА ВЕРСІЄЮ LEGENDA PARFUME',
-      img: './img/3.jpg'
+      img: '/img/3.jpg'
     },
   ];
 
@@ -20,12 +20,12 @@ export default function News() {
     {
       // title: 'НОВИvfvfvfНКА',
       // description: 'ТУТfvfvfvf ВИ ЗНАЙДЕТЕ НАЙСВІЖІШІ АРОМАТИ',
-      img: './img/4.jpg'
+      img: '/img/4.jpg'
     },
     {
       // title: 'АРОМАТ МІСЯЦЯ',
       // description: 'ТУvfvfvfvТ ВИ ЗНАЙДЕТЕ АРОМАТ МІСЯЦЯ ЗА ВЕРСІЄЮ LEGENDA PARFUME',
-      img: './img/5.jpg'
+      img: '/img/5.jpg'
     },
   ];
 
@@ -106,7 +106,7 @@ export default function News() {
       </div>
 
       {isBasketWindowActive && <div className='news-window'>
-        <img onClick={handleWindowClick} className='basket-window__close' src="./img/close-window.svg" alt="" />
+        <img onClick={handleWindowClick} className='basket-window__close' src="/img/close-window.svg" alt="" />
         <img className='news-window__img' src={windowImg} alt="" />
       </div>}
 

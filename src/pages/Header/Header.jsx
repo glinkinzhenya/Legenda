@@ -12,7 +12,7 @@ export default function Header() {
       <div className='header container'>
 
         <a className='header-logo__picture' href="/">
-          <img className='header-logo__image' src="./img/logo-header.svg" alt="legenda-parfum-logo" />
+          <img className='header-logo__image' src="/img/logo-header.svg" alt="legenda-parfum-logo" />
         </a>
 
         <nav className='header-category'>

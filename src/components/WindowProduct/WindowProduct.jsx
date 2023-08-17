@@ -4,21 +4,53 @@ import './WindowProduct.css';
 import { Alert, Button, Snackbar } from '@mui/material';
 
 export default function WindowProduct() {
-  const { cartItems2, setCartItems2, windowOpen, setWindowOpen } = useContext(Context);
+  const { cartItems2, setCartItems2, windowOpen, setWindowOpen, mainData } = useContext(Context);
 
   const [open, setOpen] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const [activeSize, setActiveSize] = useState('3 ml');
   const [mainImg, setMainImg] = useState('');
   const [product, setProduct] = useState(false);
+  const [flag, setFlag] = useState(false);
+
+  const [mainPass, setMainPass] = useState(false);
+
+  const pathname = window.location.pathname;
+
+  console.log(pathname);
+
+
+  useEffect(() => {
+    const segments = decodeURIComponent(pathname).split('/');
+    setMainPass(segments)
+
+
+    if (mainData && !flag) {
+      let filteredProducts = mainData.filter((item) => item['@id'] === segments[2]);
+
+      if (filteredProducts.length > 0) {
+        setWindowOpen(filteredProducts[0]);
+      }
+    }
+
+  }, [pathname, mainData]);
 
   useEffect(() => {
     if (windowOpen) {
       document.body.classList.add('body-fixed');
+
       setMainImg(windowOpen.picture[0])
+
       setProduct(windowOpen);
+      const newPath = `/${mainPass[1]}/${windowOpen['@id']}`;
+      window.history.pushState(null, null, newPath);
+      setFlag(true);
+    } else if (mainPass && flag) {
+      const newPath = `/${mainPass[1]}`;
+      window.history.pushState(null, null, newPath);
     }
-  }, [windowOpen]);
+
+  }, [windowOpen, mainPass]);
 
 
   const handleImageClick = (imageGallery) => {
@@ -68,7 +100,7 @@ export default function WindowProduct() {
     <div>
       <div onClick={touchProductClose} className={`window__blur ${windowOpen ? 'window__blur__active' : ''}`}></div>
       {windowOpen && <div className='window'>
-        <img onClick={touchProductClose} className='window__close-product' src="./img/close-window.svg" alt="" />
+        <img onClick={touchProductClose} className='window__close-product' src="/img/close-window.svg" alt="" />
 
         <div className='window__photo'>
 

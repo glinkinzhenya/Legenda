@@ -17,38 +17,38 @@ export default function ProductsMap({ category, popular }) {
   const [arrayProductPopularThree, setArrayProductPopularThree] = useState('');
   const { mainData, setWindowOpen } = useContext(Context);
 
-  // скачивание изображений
-  const loadImage = (src) => new Promise((resolve, reject) => {
-    const image = new Image();
-    image.onload = () => resolve(image);
-    image.onerror = (error) => reject(error);
-    image.src = src;
-  });
+  // // скачивание изображений
+  // const loadImage = (src) => new Promise((resolve, reject) => {
+  //   const image = new Image();
+  //   image.onload = () => resolve(image);
+  //   image.onerror = (error) => reject(error);
+  //   image.src = src;
+  // });
 
 
-  const loadImagesForArray = async (array) => {
-    try {
-      const imagePromises = array.map((item) => {
-        if (Array.isArray(item.picture)) {
-          return Promise.all(item.picture.map((src) => loadImage(src)));
-        } else if (typeof item.picture === "string") {
-          return loadImage(item.picture).then((image) => [image]);
-        } else {
-          return Promise.resolve([]); // Возвращаем разрешенный промис с пустым массивом для некорректных значений
-        }
-      });
+  // const loadImagesForArray = async (array) => {
+  //   try {
+  //     const imagePromises = array.map((item) => {
+  //       if (Array.isArray(item.picture)) {
+  //         return Promise.all(item.picture.map((src) => loadImage(src)));
+  //       } else if (typeof item.picture === "string") {
+  //         return loadImage(item.picture).then((image) => [image]);
+  //       } else {
+  //         return Promise.resolve([]); // Возвращаем разрешенный промис с пустым массивом для некорректных значений
+  //       }
+  //     });
 
-      const loadedImagesArrays = await Promise.all(imagePromises);
+  //     const loadedImagesArrays = await Promise.all(imagePromises);
 
-      const productsWithImages = array.map((item, index) => ({
-        ...item,
-        picture: loadedImagesArrays[index],
-      }));
-      setArrayProduct(productsWithImages);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //     const productsWithImages = array.map((item, index) => ({
+  //       ...item,
+  //       picture: loadedImagesArrays[index],
+  //     }));
+  //     setArrayProduct(productsWithImages);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
 
 
@@ -65,15 +65,15 @@ export default function ProductsMap({ category, popular }) {
             (item) => item.keywords
           );
         }
-        loadImagesForArray(filteredProducts);
-        // setArrayProduct(filteredProducts)
+        // loadImagesForArray(filteredProducts);
+        setArrayProduct(filteredProducts)
 
       } else if (popular) {
         let filteredProducts = mainData.filter(
           (item) => item.keywords
         );
-        loadImagesForArray(filteredProducts);
-        // setArrayProduct(filteredProducts)
+        // loadImagesForArray(filteredProducts);
+        setArrayProduct(filteredProducts)
       } else {
         // loadImagesForArray(mainData);
         setArrayProduct(mainData);
@@ -268,7 +268,7 @@ export default function ProductsMap({ category, popular }) {
     return displayedProducts.map((item, index) => (
       <div onClick={() => touchProduct(item)} className='products-map-box__item' key={index}>
         <div className='products-map-box__item-picture'>
-          <img className='products-map-box__item-image' src={item.picture[0] ? item.picture[0].currentSrc : './img/no-image.jpeg'} alt='' />
+          <img className='products-map-box__item-image' src={item.picture[0] ? item.picture[0].currentSrc : '/img/no-image.jpeg'} alt='' />
         </div>
         <div className='products-map-box__item-text'>
           <div className='products-map-box__item-title'>{item.name}</div>
@@ -308,7 +308,7 @@ export default function ProductsMap({ category, popular }) {
               <>
                 {arrayProductPopularOne && <div onClick={() => touchProduct(arrayProductPopularOne)} className={`products-map-box__item-popular ${fadeOutOne ? 'fade-out__opacity' : ''}`}>
                   <div className={`${popular ? 'products-map-box__item-picture-popular' : 'products-map-box__item-picture'}`}>
-                    <img className='products-map-box__item-image' src={arrayProductPopularOne.picture[0] ? arrayProductPopularOne.picture[0].currentSrc : './img/no-image.jpeg'} alt='' />
+                    <img className='products-map-box__item-image' src={arrayProductPopularOne.picture[0] ? arrayProductPopularOne.picture[0].currentSrc : '/img/no-image.jpeg'} alt='' />
                   </div>
                   <div className='products-map-box__item-text'>
                     <div className='products-map-box__item-title'>{arrayProductPopularOne.title}</div>
@@ -319,7 +319,7 @@ export default function ProductsMap({ category, popular }) {
 
                 {arrayProductPopularTwo && <div onClick={() => touchProduct(arrayProductPopularTwo)} className={`products-map-box__item-popular ${fadeOutTwo ? 'fade-out__opacity' : ''}`}>
                   <div className={`${popular ? 'products-map-box__item-picture-popular' : 'products-map-box__item-picture'}`}>
-                    <img className='products-map-box__item-image' src={arrayProductPopularTwo.picture[0] ? arrayProductPopularTwo.picture[0].currentSrc : './img/no-image.jpeg'} alt='' />
+                    <img className='products-map-box__item-image' src={arrayProductPopularTwo.picture[0] ? arrayProductPopularTwo.picture[0].currentSrc : '/img/no-image.jpeg'} alt='' />
                   </div>
                   <div className='products-map-box__item-text'>
                     <div className='products-map-box__item-title'>{arrayProductPopularTwo.title}</div>
@@ -330,7 +330,7 @@ export default function ProductsMap({ category, popular }) {
 
                 {arrayProductPopularThree && <div onClick={() => touchProduct(arrayProductPopularThree)} className={`products-map-box__item-popular ${fadeOutThree ? 'fade-out__opacity' : ''}`}>
                   <div className={`${popular ? 'products-map-box__item-picture-popular' : 'products-map-box__item-picture'}`}>
-                    <img className='products-map-box__item-image' src={arrayProductPopularThree.picture[0] ? arrayProductPopularThree.picture[0].currentSrc : './img/no-image.jpeg'} alt='' />
+                    <img className='products-map-box__item-image' src={arrayProductPopularThree.picture[0] ? arrayProductPopularThree.picture[0].currentSrc : '/img/no-image.jpeg'} alt='' />
                   </div>
                   <div className='products-map-box__item-text'>
                     <div className='products-map-box__item-title'>{arrayProductPopularThree.title}</div>

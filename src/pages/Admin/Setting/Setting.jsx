@@ -23,14 +23,14 @@ export default function Setting() {
   const [display, setDisplay] = useState(false);
 
   const categoryArray = [
-    '/rospiv',
-    '/miniatures',
-    '/news2023',
-    '/makeup',
-    '/perfumery',
-    '/shower-gels',
-    '/full-vials',
-    '/oils',
+    'rospiv',
+    'miniatures',
+    'news2023',
+    'makeup',
+    'perfumery',
+    'shower-gels',
+    'full-vials',
+    'oils',
   ];
 
   const brands = [
