@@ -17,8 +17,6 @@ export default function WindowProduct() {
 
   const pathname = window.location.pathname;
 
-  console.log(windowOpen);
-
   useEffect(() => {
     const segments = decodeURIComponent(pathname).split('/');
 
@@ -30,12 +28,10 @@ export default function WindowProduct() {
 
     if (mainData && !flag) {
       let filteredProducts = mainData.filter((item) => item['@id'] === segments[2]);
-
       if (filteredProducts.length > 0) {
         setWindowOpen(filteredProducts[0]);
       }
     }
-
   }, [pathname, mainData]);
 
   useEffect(() => {

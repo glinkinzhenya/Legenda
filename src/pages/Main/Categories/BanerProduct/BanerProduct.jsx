@@ -61,7 +61,8 @@ export default function BanerProduct() {
   }, [dataFireBase]);
 
   const touchProduct = (item) => {
-    setWindowOpen(item);
+    // setWindowOpen(item);
+    window.location.href = item;
   };
 
   return (
@@ -75,7 +76,7 @@ export default function BanerProduct() {
       </div>
       <div className='banerProduct-box'>
         <div className='banerProduct-box__title'>{data ? data[0].name : ''}</div>
-        <div onClick={() => touchProduct(data[0])} className='banerProduct-box__button'>Детальніше</div>
+        <div onClick={() => touchProduct(data[0].description)} className='banerProduct-box__button'>Детальніше</div>
       </div>
 
     </div>
