@@ -12,18 +12,19 @@ export default function WindowProduct() {
   const [mainImg, setMainImg] = useState('');
   const [product, setProduct] = useState(false);
   const [flag, setFlag] = useState(false);
-
+  const [linkSwitch, setlinkSwitch] = useState(false);
   const [mainPass, setMainPass] = useState(false);
 
   const pathname = window.location.pathname;
 
-  console.log(pathname);
-
-
   useEffect(() => {
     const segments = decodeURIComponent(pathname).split('/');
-    setMainPass(segments)
 
+    if (segments[1] === '') {
+      setlinkSwitch(true);
+    } else {
+      setMainPass(segments)
+    }
 
     if (mainData && !flag) {
       let filteredProducts = mainData.filter((item) => item['@id'] === segments[2]);
@@ -42,12 +43,26 @@ export default function WindowProduct() {
       setMainImg(windowOpen.picture[0])
 
       setProduct(windowOpen);
-      const newPath = `/${mainPass[1]}/${windowOpen['@id']}`;
-      window.history.pushState(null, null, newPath);
+
+      if (!linkSwitch) {
+        const newPath = `/${mainPass[1]}/${windowOpen['@id']}`;
+        window.history.pushState(null, null, newPath);
+      } else {
+        const newPath = `/${windowOpen['@id']}`;
+        window.history.pushState(null, null, newPath);
+      }
+
       setFlag(true);
+
     } else if (mainPass && flag) {
-      const newPath = `/${mainPass[1]}`;
-      window.history.pushState(null, null, newPath);
+
+      if (!linkSwitch) {
+        const newPath = `/${mainPass[1]}`;
+        window.history.pushState(null, null, newPath);
+      } else {
+        const newPath = `/`;
+        window.history.pushState(null, null, newPath);
+      }
     }
 
   }, [windowOpen, mainPass]);

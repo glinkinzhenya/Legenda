@@ -138,7 +138,7 @@ export default function Basket() {
           </div>
         )
         : (
-          <img className='basket-image__none' src="./img/logo-basket.svg" alt="" />
+          <img className='basket-image__none' src="/img/logo-basket.svg" alt="" />
         )
       }
 
