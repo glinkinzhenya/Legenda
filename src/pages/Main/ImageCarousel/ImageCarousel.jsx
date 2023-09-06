@@ -11,7 +11,7 @@ export default function ImageCarousel() {
 
   useEffect(() => {
     if (dataFireBase) {
-      setMainData(dataFireBase[0].carousel);
+      setMainData(dataFireBase.carousel);
       setTimeout(() => {
         setBlack(false);
       }, 800);

@@ -21,14 +21,14 @@ export default function Rospiv() {
               <div className='rospiv-box__item-picture'>
                 <img className='rospiv-box__item-image' src="./img/perfumery.png" alt="legenda-parfum" />
               </div>
-              <div className='rospiv-box__item-text'>ПАРФУМЕРІЯ</div>
+              <div className='rospiv-box__item-text'>ПАРФЮМЕРІЯ</div>
             </a>
 
             <a className='rospiv-box__item' href="/shower-gels">
               <div className='rospiv-box__item-picture'>
                 <img className='rospiv-box__item-image' src="./img/geli.png" alt="legenda-parfum" />
               </div>
-                <div className='rospiv-box__item-text'>ГЕЛІ ДЛЯ ДУША</div>
+                <div className='rospiv-box__item-text'>ГЕЛІ ДЛЯ ДУШУ</div>
             </a>
 
             <a className='rospiv-box__item' href="/oils">

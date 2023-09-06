@@ -27,7 +27,7 @@ export default function WindowProduct() {
     }
 
     if (mainData && !flag) {
-      let filteredProducts = mainData.filter((item) => item['@id'] === segments[2]);
+      let filteredProducts = mainData.filter((item) => item.category === segments[2]);
       if (filteredProducts.length > 0) {
         setWindowOpen(filteredProducts[0]);
       }
@@ -88,20 +88,14 @@ export default function WindowProduct() {
     setWindowOpen(false);
     document.body.classList.remove('body-fixed');
 
-    // Преобразование объекта item перед сохранением в локальное хранилище
-    const itemToSave = {
-      ...item,
-      picture: item.picture.map((pic) => pic.src), // Преобразуем элементы типа DOM в массив строк с путями к картинкам
-    };
-
     const cartItems = await localStorage.getItem('cartItems');
     if (cartItems) {
       const cartItemsPars = JSON.parse(cartItems);
-      localStorage.setItem('cartItems', JSON.stringify([...cartItemsPars, itemToSave]));
+      localStorage.setItem('cartItems', JSON.stringify([...cartItemsPars, item]));
     } else {
-      localStorage.setItem('cartItems', JSON.stringify([itemToSave]));
+      localStorage.setItem('cartItems', JSON.stringify([item]));
     }
-    setCartItems2([...cartItems2, itemToSave]);
+    setCartItems2([...cartItems2, item]);
   };
 
   const handleClose = () => {
@@ -119,13 +113,13 @@ export default function WindowProduct() {
           <div className='window__gallary'>
             {product.picture && product.picture.map((item, index) => (
               <div onClick={() => handleImageClick(item)} key={index} className='window__gallary-picture'>
-                <img className='window__gallary-img' src={item.currentSrc} alt='' />
+                <img className='window__gallary-img' src={item} alt='' />
               </div>
             ))}
           </div>
 
           <div className={`window__gallary-main ${fadeOut ? 'fade-out' : ''}`}>
-            {mainImg && <img className='window__gallary-main-img' src={mainImg.currentSrc} alt="" />}
+            {mainImg && <img className='window__gallary-main-img' src={mainImg} alt="" />}
           </div>
 
         </div>

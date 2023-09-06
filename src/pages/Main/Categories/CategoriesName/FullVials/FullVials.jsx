@@ -17,11 +17,11 @@ export default function FullVials() {
         <div className='productsPage-container container'>
           <h2 className='productsPage-title'>ПОВНІ ФЛАКОНИ</h2>
 
-          <ProductsMap category={'2'} />
+          <ProductsMap category={'повні флакони'} />
 
         </div>
       </div>
-      <HitSale category={'2'} popular={'популярні'} />
+      <HitSale category={'повні флакони'} popular={true} />
       <News />
       <PaymentAndDelivery />
       <SectionCallBack />

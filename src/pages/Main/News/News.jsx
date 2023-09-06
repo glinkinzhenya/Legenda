@@ -7,12 +7,12 @@ export default function News() {
     {
       // title: 'НОВИНКА',
       // description: 'ТУТ ВИ ЗНАЙДЕТЕ НАЙСВІЖІШІ АРОМАТИ',
-      img: '/img/2.jpg'
+      img: '/img/1.png'
     },
     {
       // title: 'АРОМАТ МІСЯЦЯ',
       // description: 'ТУТ ВИ ЗНАЙДЕТЕ АРОМАТ МІСЯЦЯ ЗА ВЕРСІЄЮ LEGENDA PARFUME',
-      img: '/img/3.jpg'
+      img: '/img/1.png'
     },
   ];
 
@@ -20,12 +20,12 @@ export default function News() {
     {
       // title: 'НОВИvfvfvfНКА',
       // description: 'ТУТfvfvfvf ВИ ЗНАЙДЕТЕ НАЙСВІЖІШІ АРОМАТИ',
-      img: '/img/4.jpg'
+      img: '/img/6.png'
     },
     {
       // title: 'АРОМАТ МІСЯЦЯ',
       // description: 'ТУvfvfvfvТ ВИ ЗНАЙДЕТЕ АРОМАТ МІСЯЦЯ ЗА ВЕРСІЄЮ LEGENDA PARFUME',
-      img: '/img/5.jpg'
+      img: '/img/6.png'
     },
   ];
 

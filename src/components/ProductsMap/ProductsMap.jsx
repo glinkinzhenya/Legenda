@@ -15,8 +15,8 @@ export default function ProductsMap({ category, popular }) {
   const [arrayProductPopularOne, setArrayProductPopularOne] = useState('');
   const [arrayProductPopularTwo, setArrayProductPopularTwo] = useState('');
   const [arrayProductPopularThree, setArrayProductPopularThree] = useState('');
-  const { mainData, setWindowOpen } = useContext(Context);
-
+  const { dataFireBase, setWindowOpen } = useContext(Context);
+  console.log(arrayProduct);
   // // скачивание изображений
   // const loadImage = (src) => new Promise((resolve, reject) => {
   //   const image = new Image();
@@ -54,34 +54,36 @@ export default function ProductsMap({ category, popular }) {
 
   useEffect(() => {
 
-    if (mainData) {
+    if (dataFireBase) {
       if (category) {
-        let filteredProducts = mainData.filter(
-          (item) => item.categoryId === category
+        let filteredProducts = dataFireBase.product.filter(
+          (item) => item.category === category
         );
 
         if (popular) {
           filteredProducts = filteredProducts.filter(
-            (item) => item.keywords
+            (item) => item.popular
           );
         }
         // loadImagesForArray(filteredProducts);
         setArrayProduct(filteredProducts)
-
+        console.log(filteredProducts);
       } else if (popular) {
-        let filteredProducts = mainData.filter(
-          (item) => item.keywords
+        let filteredProducts = dataFireBase.product.filter(
+          (item) => item.popular
         );
         // loadImagesForArray(filteredProducts);
         setArrayProduct(filteredProducts)
+
+        console.log(filteredProducts);
       } else {
         // loadImagesForArray(mainData);
-        setArrayProduct(mainData);
+        setArrayProduct(dataFireBase);
       }
-
+      // setArrayProduct(dataFireBase);
     }
 
-  }, [mainData, category, popular]);
+  }, [dataFireBase, category, popular]);
 
   const touchProduct = (item) => {
     setWindowOpen(item);
@@ -268,7 +270,7 @@ export default function ProductsMap({ category, popular }) {
     return displayedProducts.map((item, index) => (
       <div onClick={() => touchProduct(item)} className='products-map-box__item' key={index}>
         <div className='products-map-box__item-picture'>
-          <img className='products-map-box__item-image' src={item.picture[0] ? item.picture[0].currentSrc : '/img/no-image.jpeg'} alt='' />
+          <img className='products-map-box__item-image' src={item.picture ? item.picture[0] : '/img/no-image.jpeg'} alt='' />
         </div>
         <div className='products-map-box__item-text'>
           <div className='products-map-box__item-title'>{item.name}</div>
@@ -308,7 +310,7 @@ export default function ProductsMap({ category, popular }) {
               <>
                 {arrayProductPopularOne && <div onClick={() => touchProduct(arrayProductPopularOne)} className={`products-map-box__item-popular ${fadeOutOne ? 'fade-out__opacity' : ''}`}>
                   <div className={`${popular ? 'products-map-box__item-picture-popular' : 'products-map-box__item-picture'}`}>
-                    <img className='products-map-box__item-image' src={arrayProductPopularOne.picture[0] ? arrayProductPopularOne.picture[0].currentSrc : '/img/no-image.jpeg'} alt='' />
+                    <img className='products-map-box__item-image' src={arrayProductPopularOne.picture[0] ? arrayProductPopularOne.picture[0] : '/img/no-image.jpeg'} alt='' />
                   </div>
                   <div className='products-map-box__item-text'>
                     <div className='products-map-box__item-title'>{arrayProductPopularOne.title}</div>
@@ -319,7 +321,7 @@ export default function ProductsMap({ category, popular }) {
 
                 {arrayProductPopularTwo && <div onClick={() => touchProduct(arrayProductPopularTwo)} className={`products-map-box__item-popular ${fadeOutTwo ? 'fade-out__opacity' : ''}`}>
                   <div className={`${popular ? 'products-map-box__item-picture-popular' : 'products-map-box__item-picture'}`}>
-                    <img className='products-map-box__item-image' src={arrayProductPopularTwo.picture[0] ? arrayProductPopularTwo.picture[0].currentSrc : '/img/no-image.jpeg'} alt='' />
+                    <img className='products-map-box__item-image' src={arrayProductPopularTwo.picture[0] ? arrayProductPopularTwo.picture[0] : '/img/no-image.jpeg'} alt='' />
                   </div>
                   <div className='products-map-box__item-text'>
                     <div className='products-map-box__item-title'>{arrayProductPopularTwo.title}</div>
@@ -330,7 +332,7 @@ export default function ProductsMap({ category, popular }) {
 
                 {arrayProductPopularThree && <div onClick={() => touchProduct(arrayProductPopularThree)} className={`products-map-box__item-popular ${fadeOutThree ? 'fade-out__opacity' : ''}`}>
                   <div className={`${popular ? 'products-map-box__item-picture-popular' : 'products-map-box__item-picture'}`}>
-                    <img className='products-map-box__item-image' src={arrayProductPopularThree.picture[0] ? arrayProductPopularThree.picture[0].currentSrc : '/img/no-image.jpeg'} alt='' />
+                    <img className='products-map-box__item-image' src={arrayProductPopularThree.picture[0] ? arrayProductPopularThree.picture[0] : '/img/no-image.jpeg'} alt='' />
                   </div>
                   <div className='products-map-box__item-text'>
                     <div className='products-map-box__item-title'>{arrayProductPopularThree.title}</div>

@@ -15,11 +15,11 @@ export default function Miniatures() {
         <div className='productsPage-container container'>
           <h2 className='productsPage-title'>МІНІАТЮРИ</h2>
 
-          <ProductsMap category={'4'} />
+          <ProductsMap category={'мініатюри'} />
 
         </div>
       </div>
-      <HitSale category={'4'} popular={'популярні'} />
+      <HitSale category={'мініатюри'} popular={true} />
       <News />
       <PaymentAndDelivery />
       <SectionCallBack />

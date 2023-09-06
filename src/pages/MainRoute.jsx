@@ -7,16 +7,16 @@ import Setting from './Admin/Setting/Setting';
 import NotFound from './NotFound/NotFound';
 import Rospiv from './Main/Categories/CategoriesName/Rospiv/Rospiv';
 import FullVials from './Main/Categories/CategoriesName/FullVials/FullVials';
-import RospivPerfumery from './Main/Categories/CategoriesName/Rospiv/RospivProducts/RospivPerfumery/RospivPerfumery';
 import Makeup from './Main/Categories/CategoriesName/Makeup/Makeup';
-import ShowerGels from './Main/Categories/CategoriesName/Rospiv/RospivProducts/RospivMakeup/RospivMakeupProducts/ShowerGels/ShowerGels';
-import Oils from './Main/Categories/CategoriesName/Rospiv/RospivProducts/RospivMakeup/RospivMakeupProducts/Oils/Oils';
 import Miniatures from './Main/Categories/CategoriesName/Miniatures/Miniatures';
 import News2023 from './Main/Categories/CategoriesName/News2023/News2023';
 import AboutUsPage from './AboutUsPage/AboutUsPage';
 import PaymentAndDeliveryPage from './PaymentAndDeliveryPage/PaymentAndDeliveryPage';
 import Contacts from './Main/Contacts/Contacts';
 import Pay from './../components/Pay/Pay';
+import Oils from './Main/Categories/CategoriesName/Rospiv/RospivProducts/Oils';
+import ShowerGels from './Main/Categories/CategoriesName/Rospiv/RospivProducts/ShowerGels';
+import Perfumery from './Main/Categories/CategoriesName/Rospiv/RospivProducts/Perfumery';
 
 export default function MainRoute() {
   return (
@@ -27,11 +27,11 @@ export default function MainRoute() {
         <Route path='/setting' element={<Setting />} />
         <Route path='/contacts' element={<Contacts />} />
         <Route path='/rospiv' element={<Rospiv />} />
-        <Route path='/perfumery/*' element={<RospivPerfumery />} />
-        <Route path='/full-vials/*' element={<FullVials />} />
-        <Route path='/shower-gels/*' element={<ShowerGels />} />
-        <Route path='/oils/*' element={<Oils />} />
-        <Route path='/miniatures/*' element={<Miniatures />} />
+        <Route path='/perfumery' element={<Perfumery />} />
+        <Route path='/full-vials' element={<FullVials />} />
+        <Route path='/shower-gels' element={<ShowerGels />} />
+        <Route path='/oils' element={<Oils />} />
+        <Route path='/miniatures' element={<Miniatures />} />
         <Route path='/makeup' element={<Makeup />} />
         <Route path='/news2023' element={<News2023 />} />
         <Route path='/about-us' element={<AboutUsPage />} />

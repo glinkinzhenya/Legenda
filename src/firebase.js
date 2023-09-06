@@ -4,13 +4,13 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAU_cVSiqNEhniG5Hw2bjareHiiB-skRK4",
-  authDomain: "spetsvik1-deepdive.firebaseapp.com",
-  databaseURL: "https://spetsvik1-deepdive-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "spetsvik1-deepdive",
-  storageBucket: "spetsvik1-deepdive.appspot.com",
-  messagingSenderId: "669607923989",
-  appId: "1:669607923989:web:4ee7c3f2bf16dae0dfd91c"
+  apiKey: "AIzaSyDnmj5uAS5Tka3-UwOWMUtuik8w0Ckn7Ag",
+  authDomain: "legenda-parfum.firebaseapp.com",
+  projectId: "legenda-parfum",
+  storageBucket: "legenda-parfum.appspot.com",
+  messagingSenderId: "798048296331",
+  appId: "1:798048296331:web:ac1b849da99e930cc3a38e",
+  measurementId: "G-VYJFJ8E1C2"
 };
 
 firebase.initializeApp(firebaseConfig);

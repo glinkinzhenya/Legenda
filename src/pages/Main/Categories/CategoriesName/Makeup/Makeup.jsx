@@ -15,11 +15,11 @@ export default function Makeup() {
         <div className='productsPage-container container'>
           <h2 className='productsPage-title'>КОСМЕТИКА</h2>
 
-          <ProductsMap category={'5'} />
+          <ProductsMap category={'косметика'} />
 
         </div>
       </div>
-      <HitSale category={'5'} popular={'популярні'} />
+      <HitSale category={'косметика'} popular={true} />
       <News />
       <PaymentAndDelivery />
       <SectionCallBack />

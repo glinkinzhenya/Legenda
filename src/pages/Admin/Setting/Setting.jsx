@@ -23,14 +23,13 @@ export default function Setting() {
   const [display, setDisplay] = useState(false);
 
   const categoryArray = [
-    'rospiv',
-    'miniatures',
-    'news2023',
-    'makeup',
-    'perfumery',
-    'shower-gels',
-    'full-vials',
-    'oils',
+    'мініатюри',
+    'новинки',
+    'косметика',
+    'розпив парфюмерія',
+    'гелі для душу',
+    'повні флакони',
+    'масла',
   ];
 
   const brands = [
@@ -65,9 +64,9 @@ export default function Setting() {
 
   useEffect(() => {
     if (dataFireBase) {
-      setArrayCarousel(dataFireBase[0].carousel);
-      setArrayNews(dataFireBase[0].news);
-      setArrayProduct(dataFireBase[0].product);
+      setArrayCarousel(dataFireBase.carousel);
+      setArrayNews(dataFireBase.news);
+      setArrayProduct(dataFireBase.product);
     }
   }, [dataFireBase]);
 
@@ -128,7 +127,7 @@ export default function Setting() {
 
           return firestore
             .collection('data')
-            .doc('RvwOmHHKyWpAChE4gdTQ')
+            .doc('8mEUPwN2qeYmEmWod95S')
             .update(update)
             .then(() => {
               setProgress('Файлы добавлены');
@@ -196,7 +195,7 @@ export default function Setting() {
     // Удаляем товар из базы данных
     firestore
       .collection('data')
-      .doc('RvwOmHHKyWpAChE4gdTQ')
+      .doc('8mEUPwN2qeYmEmWod95S')
       .update({
         [folderPath]: updatedArray,
       })
@@ -274,7 +273,7 @@ export default function Setting() {
 
     firestore
       .collection('data')
-      .doc('RvwOmHHKyWpAChE4gdTQ')
+      .doc('8mEUPwN2qeYmEmWod95S')
       .update({ 'product': updatedArray })
       .then(() => {
         setProgress('Товар оновлено');

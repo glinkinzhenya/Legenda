@@ -46,7 +46,7 @@ export default function BanerProduct() {
 
   useEffect(() => {
     if (dataFireBase) {
-      const filteredProducts = dataFireBase[0].product.filter((item) => item.category === segments[1])
+      const filteredProducts = dataFireBase.product.filter((item) => item.category === 'повні флакони')
       if (filteredProducts) {
         const arrayLength = filteredProducts.length;
         const randomIndex = Math.floor(Math.random() * arrayLength);
@@ -71,13 +71,13 @@ export default function BanerProduct() {
 
       <WindowProduct />
 
-      <div className='banerProduct__picture'>
+      {/* <div className='banerProduct__picture'>
         <img className='banerProduct__image' src={data ? data[0].picture[0].currentSrc : ''} alt="legenda-parfum" />
       </div>
       <div className='banerProduct-box'>
         <div className='banerProduct-box__title'>{data ? data[0].name : ''}</div>
         <div onClick={() => touchProduct(data[0].description)} className='banerProduct-box__button'>Детальніше</div>
-      </div>
+      </div> */}
 
     </div>
 
