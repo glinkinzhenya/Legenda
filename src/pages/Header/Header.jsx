@@ -46,7 +46,7 @@ export default function Header() {
 
           <a className={`header-category__item ${location.pathname === '/about-us' ? 'action' : ''}`} href="/about-us">ПРО НАС</a>
 
-          <a className='header-category__item' href="/contacts">КОНТАКТИамкам</a>
+          <a className='header-category__item' href="/contacts">КОНТАКТИтест</a>
 
         </nav>
 
