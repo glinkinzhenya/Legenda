@@ -2,9 +2,9 @@ import React from 'react';
 import './Rospiv.css';
 import News from '../../../News/News';
 import SectionCallBack from '../../../SectionCallBack/SectionCallBack';
-import BanerProduct from '../../BanerProduct/BanerProduct';
 import PaymentAndDelivery from '../../../PaymentAndDelivery/PaymentAndDelivery';
 import HitSale from '../../../HitSale/HitSale';
+import BanerProduct from '../../../../../components/BanerProduct/BanerProduct';
 
 export default function Rospiv() {
   return (

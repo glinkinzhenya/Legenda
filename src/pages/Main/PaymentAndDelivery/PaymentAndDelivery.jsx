@@ -67,7 +67,6 @@ export default function PaymentAndDelivery() {
         </div>
       </div>
 
-
     </div>
   );
 }

@@ -30,7 +30,7 @@ export default function Header() {
           <a className={`header-category__item ${location.pathname === '/catalog' ? 'action' : ''}`} href="/catalog">КАТАЛОГ</a>
         )} */}
 
-          <a className={`header-category__item ${location.pathname === '/news2023' ? 'action' : ''}`} href="/news2023">НОВИНКИ 2023</a>
+          <a className={`header-category__item ${location.pathname === '/news' ? 'action' : ''}`} href="/news">НОВИНКИ 2023</a>
 
           {/* <a className='header-category__item' href="/">ОПЛАТА І ДОСТАВКА</a> */}
           {/* <Link to="paymentAndDelivery" className='header-category__item' smooth={true} duration={100} offset={100}>ОПЛАТА І ДОСТАВКА</Link> */}

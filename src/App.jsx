@@ -65,9 +65,9 @@ export default function App() {
 
   const dataFireBase = fireBase;
 
-  if (dataFireBase) {
-    console.log(dataFireBase);
-  }
+  // if (dataFireBase) {
+  //   console.log(dataFireBase);
+  // }
 
 
   const hasAuth = localStorage.getItem('auth') !== null;

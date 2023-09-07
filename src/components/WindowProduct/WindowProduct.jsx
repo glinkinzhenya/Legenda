@@ -4,7 +4,7 @@ import './WindowProduct.css';
 import { Alert, Button, Snackbar } from '@mui/material';
 
 export default function WindowProduct() {
-  const { cartItems2, setCartItems2, windowOpen, setWindowOpen, mainData } = useContext(Context);
+  const { cartItems2, setCartItems2, windowOpen, setWindowOpen, dataFireBase } = useContext(Context);
 
   const [open, setOpen] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
@@ -19,20 +19,19 @@ export default function WindowProduct() {
 
   useEffect(() => {
     const segments = decodeURIComponent(pathname).split('/');
-
     if (segments[1] === '') {
       setlinkSwitch(true);
     } else {
       setMainPass(segments)
     }
+    if (dataFireBase && !flag) {
+      let filteredProducts = dataFireBase.product.filter((item) => item.article === segments[2]);
 
-    if (mainData && !flag) {
-      let filteredProducts = mainData.filter((item) => item.category === segments[2]);
       if (filteredProducts.length > 0) {
         setWindowOpen(filteredProducts[0]);
       }
     }
-  }, [pathname, mainData]);
+  }, [pathname, dataFireBase]);
 
   useEffect(() => {
     if (windowOpen) {
@@ -43,16 +42,17 @@ export default function WindowProduct() {
 
       let newPath = "/";
       const categoryPaths = {
-        '2': '/full-vials',
-        '7': '/oils',
-        '8': '/shower-gels',
-        '4': '/miniatures',
-        '5': '/makeup',
-        '6': '/news2023'
+        'full-vials': '/full-vials',
+        'oils': '/oils',
+        'perfumery': '/perfumery',
+        'shower-gels': '/shower-gels',
+        'miniatures': '/miniatures',
+        'makeup': '/makeup',
+        'news': '/news'
       };
 
-      if (categoryPaths[windowOpen.categoryId]) {
-        newPath = `${categoryPaths[windowOpen.categoryId]}/${windowOpen['@id']}`;
+      if (categoryPaths[windowOpen.category]) {
+        newPath = `${categoryPaths[windowOpen.category]}/${windowOpen.article}`;
       }
 
       window.history.pushState(null, null, newPath);
@@ -111,15 +111,15 @@ export default function WindowProduct() {
         <div className='window__photo'>
 
           <div className='window__gallary'>
-            {product.picture && product.picture.map((item, index) => (
+            {product.picture ? product.picture.map((item, index) => (
               <div onClick={() => handleImageClick(item)} key={index} className='window__gallary-picture'>
                 <img className='window__gallary-img' src={item} alt='' />
               </div>
-            ))}
+            )) : <div className='window__gallary-picture'></div>}
           </div>
 
           <div className={`window__gallary-main ${fadeOut ? 'fade-out' : ''}`}>
-            {mainImg && <img className='window__gallary-main-img' src={mainImg} alt="" />}
+            <img className='window__gallary-main-img' src={mainImg && mainImg} alt="" />
           </div>
 
         </div>

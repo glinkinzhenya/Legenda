@@ -16,7 +16,6 @@ export default function ProductsMap({ category, popular }) {
   const [arrayProductPopularTwo, setArrayProductPopularTwo] = useState('');
   const [arrayProductPopularThree, setArrayProductPopularThree] = useState('');
   const { dataFireBase, setWindowOpen } = useContext(Context);
-  console.log(arrayProduct);
   // // скачивание изображений
   // const loadImage = (src) => new Promise((resolve, reject) => {
   //   const image = new Image();
@@ -67,7 +66,6 @@ export default function ProductsMap({ category, popular }) {
         }
         // loadImagesForArray(filteredProducts);
         setArrayProduct(filteredProducts)
-        console.log(filteredProducts);
       } else if (popular) {
         let filteredProducts = dataFireBase.product.filter(
           (item) => item.popular

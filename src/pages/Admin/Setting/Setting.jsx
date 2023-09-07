@@ -23,13 +23,13 @@ export default function Setting() {
   const [display, setDisplay] = useState(false);
 
   const categoryArray = [
-    'мініатюри',
-    'новинки',
-    'косметика',
-    'розпив парфюмерія',
-    'гелі для душу',
-    'повні флакони',
-    'масла',
+    'miniatures',
+    'news',
+    'makeup',
+    'shower-gels',
+    'full-vials',
+    'oils',
+    'perfumery'
   ];
 
   const brands = [

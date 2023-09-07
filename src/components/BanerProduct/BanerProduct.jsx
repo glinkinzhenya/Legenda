@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Context } from '../../../../Contex';
+import { Context } from '../../Contex';
 import './BanerProduct.css';
-import WindowProduct from '../../../../components/WindowProduct/WindowProduct';
+import WindowProduct from '../WindowProduct/WindowProduct';
 
 export default function BanerProduct() {
   const { dataFireBase, setWindowOpen } = useContext(Context);

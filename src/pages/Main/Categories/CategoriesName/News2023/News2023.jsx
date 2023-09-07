@@ -4,7 +4,8 @@ import News from '../../../News/News';
 import SectionCallBack from '../../../SectionCallBack/SectionCallBack';
 import PaymentAndDelivery from '../../../PaymentAndDelivery/PaymentAndDelivery';
 import HitSale from '../../../HitSale/HitSale';
-import BanerProduct from '../../BanerProduct/BanerProduct';
+import BanerProduct from '../../../../../components/BanerProduct/BanerProduct';
+
 
 
 export default function News2023() {
@@ -17,11 +18,11 @@ export default function News2023() {
 
         <div className='productsPage-container container'>
 
-          <ProductsMap category={'новинки'} />
+          <ProductsMap category={'news'} />
 
         </div>
       </div>
-      <HitSale category={'новинки'} popular={true} />
+      <HitSale category={'news'} popular={true} />
       <News />
       <PaymentAndDelivery />
       <SectionCallBack />

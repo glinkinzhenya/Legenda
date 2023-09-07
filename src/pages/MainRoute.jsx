@@ -27,13 +27,13 @@ export default function MainRoute() {
         <Route path='/setting' element={<Setting />} />
         <Route path='/contacts' element={<Contacts />} />
         <Route path='/rospiv' element={<Rospiv />} />
-        <Route path='/perfumery' element={<Perfumery />} />
-        <Route path='/full-vials' element={<FullVials />} />
-        <Route path='/shower-gels' element={<ShowerGels />} />
-        <Route path='/oils' element={<Oils />} />
-        <Route path='/miniatures' element={<Miniatures />} />
-        <Route path='/makeup' element={<Makeup />} />
-        <Route path='/news2023' element={<News2023 />} />
+        <Route path='/perfumery/*' element={<Perfumery />} />
+        <Route path='/full-vials/*' element={<FullVials />} />
+        <Route path='/shower-gels/*' element={<ShowerGels />} />
+        <Route path='/oils/*' element={<Oils />} />
+        <Route path='/miniatures/*' element={<Miniatures />} />
+        <Route path='/makeup/*' element={<Makeup />} />
+        <Route path='/news/*' element={<News2023 />} />
         <Route path='/about-us' element={<AboutUsPage />} />
         <Route path='/payment-and-delivery' element={<PaymentAndDeliveryPage />} />
         <Route path='/pay' element={<Pay />} />
