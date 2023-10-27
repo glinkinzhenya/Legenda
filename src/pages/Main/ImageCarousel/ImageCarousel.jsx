@@ -22,7 +22,7 @@ export default function ImageCarousel() {
   return (
     <div className={`imageCarousel ${black ? 'imageCarousel-opacity' : ''}`}>
 
-      <Carousel interval={4000} fade slide indicators={false} controls={false} >
+      <Carousel interval={3000} fade slide indicators={false} controls={false} >
         {mainData2.map((item, index) => (
           <Carousel.Item key={index}>
             <div key={index} className="image-carousel__picture">

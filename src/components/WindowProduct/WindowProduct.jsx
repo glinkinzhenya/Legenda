@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../../Contex';
 import './WindowProduct.css';
-import { Alert, Button, Snackbar } from '@mui/material';
+import { Alert, Button, CircularProgress, Snackbar } from '@mui/material';
 
 export default function WindowProduct() {
   const { cartItems2, setCartItems2, windowOpen, setWindowOpen, dataFireBase } = useContext(Context);
@@ -11,59 +11,20 @@ export default function WindowProduct() {
   const [activeSize, setActiveSize] = useState('3 ml');
   const [mainImg, setMainImg] = useState('');
   const [product, setProduct] = useState(false);
-  const [flag, setFlag] = useState(false);
-  const [linkSwitch, setlinkSwitch] = useState(false);
-  const [mainPass, setMainPass] = useState(false);
 
-  const pathname = window.location.pathname;
+  const { pathname, search } = window.location;
 
   useEffect(() => {
-    const segments = decodeURIComponent(pathname).split('/');
-    if (segments[1] === '') {
-      setlinkSwitch(true);
-    } else {
-      setMainPass(segments)
+    const urlSearchParams = new URLSearchParams(search);
+    const idParam = urlSearchParams.get('id');
+
+    if (idParam && dataFireBase) {
+      let filteredProducts = dataFireBase.product.filter((item) => item.id === idParam);
+      setProduct(filteredProducts[0]);
+      setWindowOpen(true);
+      setMainImg(filteredProducts[0].picture[0])
     }
-    if (dataFireBase && !flag) {
-      let filteredProducts = dataFireBase.product.filter((item) => item.article === segments[2]);
-
-      if (filteredProducts.length > 0) {
-        setWindowOpen(filteredProducts[0]);
-      }
-    }
-  }, [pathname, dataFireBase]);
-
-  useEffect(() => {
-    if (windowOpen) {
-      document.body.classList.add('body-fixed');
-
-      setMainImg(windowOpen.picture[0]);
-      setProduct(windowOpen);
-
-      let newPath = "/";
-      const categoryPaths = {
-        'full-vials': '/full-vials',
-        'oils': '/oils',
-        'perfumery': '/perfumery',
-        'shower-gels': '/shower-gels',
-        'miniatures': '/miniatures',
-        'makeup': '/makeup',
-        'news': '/news'
-      };
-
-      if (categoryPaths[windowOpen.category]) {
-        newPath = `${categoryPaths[windowOpen.category]}/${windowOpen.article}`;
-      }
-
-      window.history.pushState(null, null, newPath);
-      setFlag(true);
-    } else if (mainPass && flag) {
-      const newPath = linkSwitch ? '/' : `/${mainPass[1]}`;
-      window.history.pushState(null, null, newPath);
-    }
-  }, [windowOpen, mainPass, flag]);
-
-
+  }, [search, dataFireBase]);
 
   const handleImageClick = (imageGallery) => {
     setFadeOut(true)
@@ -77,11 +38,15 @@ export default function WindowProduct() {
     setActiveSize(size);
   };
 
-  const touchProductClose = () => {
+  const touchProductClose = async () => {
+    const url = `${product.category}`;
+    await window.history.pushState({}, '', url);
     setWindowOpen(false);
     setProduct(false);
+    setMainImg('');
     document.body.classList.remove('body-fixed');
   };
+
 
   const handleClick = async (item) => {
     setOpen(true);
@@ -99,6 +64,8 @@ export default function WindowProduct() {
   };
 
   const handleClose = () => {
+    const url = `${product.category}`;
+    window.history.pushState({}, '', url);
     setOpen(false);
   };
 
@@ -119,8 +86,21 @@ export default function WindowProduct() {
           </div>
 
           <div className={`window__gallary-main ${fadeOut ? 'fade-out' : ''}`}>
-            <img className='window__gallary-main-img' src={mainImg && mainImg} alt="" />
+            {/* <img className='window__gallary-main-img' src={mainImg && mainImg} alt="" /> */}
+
+            {mainImg ? (
+              <img
+                className="window__gallary-main-img"
+                src={mainImg}
+                alt=""
+              />
+            ) : (
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: '40%' }}>
+                <CircularProgress />
+              </div>
+            )}
           </div>
+
 
         </div>
         <div className='window__info'>
@@ -154,7 +134,7 @@ export default function WindowProduct() {
 
           <div className='window__info-size'>Ціна</div>
 
-          <div className='window__info-price'>{product.price} €</div>
+          <div className='window__info-price'>{product.price} UAH</div>
 
           <div className='window__info-true'>
             <div className='window__info-true-cirle__main'>

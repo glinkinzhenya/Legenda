@@ -23,11 +23,16 @@
 .aboutUsPage__descriptionMain {
     margin-bottom: 50px;
     max-width: 805px;
-    font-size: 14px;
+    font-size: 17px;
     font-family: Nunito;
     font-weight: 300;
     line-height: 23px;
     letter-spacing: 0.1px;
+}
+
+.aboutUsPage__descriptionMain-big {
+font-weight: 600;
+    font-size: 19px;
 }
 
 .aboutUsPage-box {

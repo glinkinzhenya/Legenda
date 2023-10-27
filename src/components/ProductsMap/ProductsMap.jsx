@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import {
-  IconButton,
-} from '@mui/material';
+import { IconButton } from '@mui/material';
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import { Context } from '../../Contex';
@@ -85,6 +83,8 @@ export default function ProductsMap({ category, popular }) {
 
   const touchProduct = (item) => {
     setWindowOpen(item);
+    const url = `${item.category}?id=${item.id}`;
+    window.history.pushState({}, '', url);
   };
 
 
@@ -273,7 +273,7 @@ export default function ProductsMap({ category, popular }) {
         <div className='products-map-box__item-text'>
           <div className='products-map-box__item-title'>{item.name}</div>
           <div className='products-map-box__item-description'>{item.description}</div>
-          <div className='products-map-box__item-price'>{item.price} <span>грн.</span></div>
+          <div className='products-map-box__item-price'>{item.price} <span>UAH</span></div>
         </div>
       </div>
     ));
@@ -313,7 +313,7 @@ export default function ProductsMap({ category, popular }) {
                   <div className='products-map-box__item-text'>
                     <div className='products-map-box__item-title'>{arrayProductPopularOne.title}</div>
                     <div className='products-map-box__item-description'>{arrayProductPopularOne.description}</div>
-                    <div className='products-map-box__item-price'>{arrayProductPopularOne.price} <span>грн.</span></div>
+                    <div className='products-map-box__item-price'>{arrayProductPopularOne.price} <span>UAH</span></div>
                   </div>
                 </div>}
 
@@ -324,7 +324,7 @@ export default function ProductsMap({ category, popular }) {
                   <div className='products-map-box__item-text'>
                     <div className='products-map-box__item-title'>{arrayProductPopularTwo.title}</div>
                     <div className='products-map-box__item-description'>{arrayProductPopularTwo.description}</div>
-                    <div className='products-map-box__item-price'>{arrayProductPopularTwo.price} <span>грн.</span></div>
+                    <div className='products-map-box__item-price'>{arrayProductPopularTwo.price} <span>UAH</span></div>
                   </div>
                 </div>}
 
@@ -335,7 +335,7 @@ export default function ProductsMap({ category, popular }) {
                   <div className='products-map-box__item-text'>
                     <div className='products-map-box__item-title'>{arrayProductPopularThree.title}</div>
                     <div className='products-map-box__item-description'>{arrayProductPopularThree.description}</div>
-                    <div className='products-map-box__item-price'>{arrayProductPopularThree.price} <span>грн.</span></div>
+                    <div className='products-map-box__item-price'>{arrayProductPopularThree.price} <span>UAH</span></div>
                   </div>
                 </div>}
               </>

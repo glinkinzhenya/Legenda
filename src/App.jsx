@@ -62,7 +62,7 @@ export default function App() {
         throw error;
       });
   }, []);
-
+  console.log(fireBase);
   const dataFireBase = fireBase;
 
   // if (dataFireBase) {

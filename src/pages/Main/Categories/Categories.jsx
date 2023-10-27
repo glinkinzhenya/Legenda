@@ -11,7 +11,7 @@ export default function Categories() {
 
           <a className='categories-box__item' href="/full-vials">
             <div className='categories-box__item-picture'>
-              <img className='categories-box__item-image' src="./img/full-vials.png" alt="legenda-parfum" />
+              <img className='categories-box__item-image' src="./img/full-vials.jpg" alt="legenda-parfum" />
             </div>
             <div className='categories-box__item-text'>ПОВНІ ФЛАКОНИ</div>
           </a>
@@ -32,7 +32,7 @@ export default function Categories() {
 
           <a className='categories-box__item' href="/makeup">
             <div className='categories-box__item-picture'>
-              <img className='categories-box__item-image' src="./img/makeup.png" alt="legenda-parfum" />
+              <img className='categories-box__item-image' src="./img/makeup.jpg" alt="legenda-parfum" />
             </div>
             <div className='categories-box__item-text'>КОСМЕТИКА</div>
           </a>

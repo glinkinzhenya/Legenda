@@ -6,7 +6,7 @@ export default function SectionPicture() {
   return (
     <div className='sectionPicture container'>
       <div className='sectionPicture-bg'>
-        <img className='sectionPicture-bg__img' src="../img/sectionPicturePng.PNG" alt="" />
+        <img className='sectionPicture-bg__img' src="../img/royalsperfume_new_summer_collection_50_original_size.jpg" alt="" />
       </div>
 
       <div className='sectionPicture-text'>

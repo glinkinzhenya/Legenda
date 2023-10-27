@@ -59,6 +59,7 @@ export default function Setting() {
     millimeters: '',
     article: '',
     brand: '',
+    id: '',
     popular: false,
   });
 
@@ -218,7 +219,6 @@ export default function Setting() {
   const handleChangeShowPopular = (event) => {
     setShowPopular(event.target.checked);
   };
-  console.log(arrayProduct);
   const filteredProducts = arrayProduct.filter((item) => {
     if (selectedCategory === 'Всі товари' || item.category === selectedCategory) {
       return true;
@@ -499,6 +499,19 @@ export default function Setting() {
                 <option>Унісекс</option>
               </select>
             )}
+            {editProduct ? (
+              <input
+                className="setting-product__input"
+                name="id" onChange={(e) => handleEditInputChange(e, editProduct)}
+                value={editProduct.id}
+                type="number"
+                placeholder="id" />
+            ) : (
+              <input className="setting-product__input"
+                name="id" onChange={handleInputChange}
+                value={product.id} type="number"
+                placeholder='id' />
+            )}
 
             {editProduct ? (
               <label>
@@ -581,7 +594,7 @@ export default function Setting() {
                   <div className={`${display ? 'setting-product__box-item-info__description' : 'setting-product__box-item-info__description__display'}`}>{item.brand}</div>
                   <div className={`${display ? 'setting-product__box-item-info__description' : 'setting-product__box-item-info__description__display'}`}>{item.millimeters}</div>
                   <div className={`${display ? 'setting-product__box-item-info__description' : 'setting-product__box-item-info__description__display'}`}>{item.gender}</div>
-                  <div className={`${display ? 'setting-product__box-item-info__article' : 'setting-product__box-item-info__article__display'}`}>{item.article}</div>
+                  <div className={`${display ? 'setting-product__box-item-info__article' : 'setting-product__box-item-info__article__display'}`}>id: {item.id}</div>
                   <div className={`${display ? 'setting-product__box-item-info__popular' : 'setting-product__box-item-info__popular__display'}`}>Популярні: {item.popular ? 'Так' : 'Ні'}</div>
                 </div>
               </div>
